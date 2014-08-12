@@ -14,7 +14,6 @@
 		1F13227F199A908F00A71761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F13227E199A908F00A71761 /* main.m */; };
 		1F132283199A908F00A71761 /* NMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F132282199A908F00A71761 /* NMAppDelegate.m */; };
 		1F132286199A908F00A71761 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F132284199A908F00A71761 /* Main_iPhone.storyboard */; };
-		1F132289199A908F00A71761 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F132287199A908F00A71761 /* Main_iPad.storyboard */; };
 		1F13228C199A908F00A71761 /* NMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F13228B199A908F00A71761 /* NMViewController.m */; };
 		1F13228E199A908F00A71761 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F13228D199A908F00A71761 /* Images.xcassets */; };
 		1F132295199A908F00A71761 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F132294199A908F00A71761 /* XCTest.framework */; };
@@ -22,6 +21,10 @@
 		1F132297199A908F00A71761 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F132276199A908F00A71761 /* UIKit.framework */; };
 		1F13229F199A908F00A71761 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F13229D199A908F00A71761 /* InfoPlist.strings */; };
 		1F1322A1199A908F00A71761 /* NotifyMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1322A0199A908F00A71761 /* NotifyMeTests.m */; };
+		1F4BB18D199A94EE00C521A7 /* ContextHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BB18C199A94EE00C521A7 /* ContextHub.framework */; };
+		1F4BB18F199A94FC00C521A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB18E199A94FC00C521A7 /* README.md */; };
+		1F4BB191199A950200C521A7 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB190199A950200C521A7 /* release_notes.md */; };
+		1F4BB193199A950700C521A7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB192199A950700C521A7 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +49,6 @@
 		1F132281199A908F00A71761 /* NMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMAppDelegate.h; sourceTree = "<group>"; };
 		1F132282199A908F00A71761 /* NMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMAppDelegate.m; sourceTree = "<group>"; };
 		1F132285199A908F00A71761 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		1F132288199A908F00A71761 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		1F13228A199A908F00A71761 /* NMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMViewController.h; sourceTree = "<group>"; };
 		1F13228B199A908F00A71761 /* NMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMViewController.m; sourceTree = "<group>"; };
 		1F13228D199A908F00A71761 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -55,6 +57,10 @@
 		1F13229C199A908F00A71761 /* NotifyMeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NotifyMeTests-Info.plist"; sourceTree = "<group>"; };
 		1F13229E199A908F00A71761 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F1322A0199A908F00A71761 /* NotifyMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotifyMeTests.m; sourceTree = "<group>"; };
+		1F4BB18C199A94EE00C521A7 /* ContextHub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextHub.framework; sourceTree = "<group>"; };
+		1F4BB18E199A94FC00C521A7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		1F4BB190199A950200C521A7 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		1F4BB192199A950700C521A7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F4BB18D199A94EE00C521A7 /* ContextHub.framework in Frameworks */,
 				1F132275199A908F00A71761 /* CoreGraphics.framework in Frameworks */,
 				1F132277199A908F00A71761 /* UIKit.framework in Frameworks */,
 				1F132273199A908F00A71761 /* Foundation.framework in Frameworks */,
@@ -88,6 +95,9 @@
 				1F13229A199A908F00A71761 /* NotifyMeTests */,
 				1F132271199A908F00A71761 /* Frameworks */,
 				1F132270199A908F00A71761 /* Products */,
+				1F4BB18E199A94FC00C521A7 /* README.md */,
+				1F4BB190199A950200C521A7 /* release_notes.md */,
+				1F4BB192199A950700C521A7 /* LICENSE */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,8 +113,9 @@
 		1F132271199A908F00A71761 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1F132272199A908F00A71761 /* Foundation.framework */,
+				1F4BB18C199A94EE00C521A7 /* ContextHub.framework */,
 				1F132274199A908F00A71761 /* CoreGraphics.framework */,
+				1F132272199A908F00A71761 /* Foundation.framework */,
 				1F132276199A908F00A71761 /* UIKit.framework */,
 				1F132294199A908F00A71761 /* XCTest.framework */,
 			);
@@ -114,12 +125,12 @@
 		1F132278199A908F00A71761 /* NotifyMe */ = {
 			isa = PBXGroup;
 			children = (
+				1F4BB194199A951D00C521A7 /* Models */,
+				1F4BB195199A952300C521A7 /* Views */,
+				1F4BB196199A952800C521A7 /* View Controllers */,
 				1F132281199A908F00A71761 /* NMAppDelegate.h */,
 				1F132282199A908F00A71761 /* NMAppDelegate.m */,
 				1F132284199A908F00A71761 /* Main_iPhone.storyboard */,
-				1F132287199A908F00A71761 /* Main_iPad.storyboard */,
-				1F13228A199A908F00A71761 /* NMViewController.h */,
-				1F13228B199A908F00A71761 /* NMViewController.m */,
 				1F13228D199A908F00A71761 /* Images.xcassets */,
 				1F132279199A908F00A71761 /* Supporting Files */,
 			);
@@ -153,6 +164,29 @@
 				1F13229D199A908F00A71761 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F4BB194199A951D00C521A7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1F4BB195199A952300C521A7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1F4BB196199A952800C521A7 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F13228A199A908F00A71761 /* NMViewController.h */,
+				1F13228B199A908F00A71761 /* NMViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,10 +266,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F132289199A908F00A71761 /* Main_iPad.storyboard in Resources */,
+				1F4BB193199A950700C521A7 /* LICENSE in Resources */,
 				1F13228E199A908F00A71761 /* Images.xcassets in Resources */,
 				1F132286199A908F00A71761 /* Main_iPhone.storyboard in Resources */,
+				1F4BB18F199A94FC00C521A7 /* README.md in Resources */,
 				1F13227D199A908F00A71761 /* InfoPlist.strings in Resources */,
+				1F4BB191199A950200C521A7 /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +329,6 @@
 				1F132285199A908F00A71761 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		1F132287199A908F00A71761 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F132288199A908F00A71761 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		1F13229D199A908F00A71761 /* InfoPlist.strings */ = {
@@ -391,6 +419,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NotifyMe/NotifyMe-Prefix.pch";
 				INFOPLIST_FILE = "NotifyMe/NotifyMe-Info.plist";
@@ -404,6 +436,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NotifyMe/NotifyMe-Prefix.pch";
 				INFOPLIST_FILE = "NotifyMe/NotifyMe-Info.plist";
@@ -471,6 +507,7 @@
 				1F1322A6199A908F00A71761 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F1322A7199A908F00A71761 /* Build configuration list for PBXNativeTarget "NotifyMeTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +516,7 @@
 				1F1322A9199A908F00A71761 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
