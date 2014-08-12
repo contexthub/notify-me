@@ -23,9 +23,9 @@
 		1F4BB18F199A94FC00C521A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB18E199A94FC00C521A7 /* README.md */; };
 		1F4BB191199A950200C521A7 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB190199A950200C521A7 /* release_notes.md */; };
 		1F4BB193199A950700C521A7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB192199A950700C521A7 /* LICENSE */; };
-		1F4BB19A199AA07800C521A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB198199AA07800C521A7 /* Main.storyboard */; };
 		1F4BB19E199AA49300C521A7 /* NMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB19D199AA49300C521A7 /* NMTabBarController.m */; };
 		1F4BB1A1199AA56800C521A7 /* NMAboutTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB1A0199AA56800C521A7 /* NMAboutTableViewController.m */; };
+		1F4BB1A7199ADC1700C521A7 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB1A6199ADC1700C521A7 /* Main_iPhone.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,11 +59,12 @@
 		1F4BB18E199A94FC00C521A7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		1F4BB190199A950200C521A7 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		1F4BB192199A950700C521A7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		1F4BB199199AA07800C521A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F4BB19C199AA49300C521A7 /* NMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMTabBarController.h; path = "View Controllers/NMTabBarController.h"; sourceTree = "<group>"; };
 		1F4BB19D199AA49300C521A7 /* NMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMTabBarController.m; path = "View Controllers/NMTabBarController.m"; sourceTree = "<group>"; };
 		1F4BB19F199AA56800C521A7 /* NMAboutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMAboutTableViewController.h; path = "View Controllers/Tabs/NMAboutTableViewController.h"; sourceTree = "<group>"; };
 		1F4BB1A0199AA56800C521A7 /* NMAboutTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMAboutTableViewController.m; path = "View Controllers/Tabs/NMAboutTableViewController.m"; sourceTree = "<group>"; };
+		1F4BB1A6199ADC1700C521A7 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone.storyboard; path = ../Main_iPhone.storyboard; sourceTree = "<group>"; };
+		1F4BB1A8199ADC7500C521A7 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +135,8 @@
 				1F132281199A908F00A71761 /* NMAppDelegate.h */,
 				1F132282199A908F00A71761 /* NMAppDelegate.m */,
 				1F13228D199A908F00A71761 /* Images.xcassets */,
-				1F4BB198199AA07800C521A7 /* Main.storyboard */,
+				1F4BB1A6199ADC1700C521A7 /* Main_iPhone.storyboard */,
+				1F4BB1A8199ADC7500C521A7 /* Main.storyboard */,
 				1F132279199A908F00A71761 /* Supporting Files */,
 			);
 			path = NotifyMe;
@@ -283,7 +285,7 @@
 				1F4BB193199A950700C521A7 /* LICENSE in Resources */,
 				1F13228E199A908F00A71761 /* Images.xcassets in Resources */,
 				1F4BB18F199A94FC00C521A7 /* README.md in Resources */,
-				1F4BB19A199AA07800C521A7 /* Main.storyboard in Resources */,
+				1F4BB1A7199ADC1700C521A7 /* Main_iPhone.storyboard in Resources */,
 				1F13227D199A908F00A71761 /* InfoPlist.strings in Resources */,
 				1F4BB191199A950200C521A7 /* release_notes.md in Resources */,
 			);
@@ -360,14 +362,6 @@
 				1F13229E199A908F00A71761 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		1F4BB198199AA07800C521A7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F4BB199199AA07800C521A7 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
