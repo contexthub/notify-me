@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Stor Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="X00-WX-jMt">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wnh-zH-Ekz" customClass="StorTabBarController" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wnh-zH-Ekz" customClass="NMTabBarController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="kNf-De-3ap">
@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="1242" y="1335"/>
         </scene>
-        <!--Stor About Table View Controller - About-->
+        <!--About Table View Controller - About-->
         <scene sceneID="tWg-zk-E6L">
             <objects>
-                <tableViewController id="5VG-CB-vt2" customClass="StorAboutTableViewController" sceneMemberID="viewController">
+                <tableViewController id="5VG-CB-vt2" customClass="NMAboutTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Vmh-W7-X18">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
