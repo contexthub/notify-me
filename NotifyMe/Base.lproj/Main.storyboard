@@ -30,7 +30,7 @@
         <scene sceneID="ho2-AD-QJ1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="quk-7V-Icr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Send" image="VaultTabBarIcon" id="B90-ac-XZL"/>
+                    <tabBarItem key="tabBarItem" title="Send" image="SendTabBarIcon" id="B90-ac-XZL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sp9-XB-zlB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -200,7 +200,7 @@
         <scene sceneID="dFw-xI-flF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t2t-GK-1yQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Receive" id="Y0K-CM-ehw"/>
+                    <tabBarItem key="tabBarItem" title="Receive" image="ReceiveTabBarIcon" id="Y0K-CM-ehw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vpz-5Y-AZD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -219,7 +219,8 @@
     <resources>
         <image name="AboutTabBarIcon" width="28" height="28"/>
         <image name="ContextHub" width="500" height="100"/>
-        <image name="VaultTabBarIcon" width="28" height="22"/>
+        <image name="ReceiveTabBarIcon" width="28" height="27"/>
+        <image name="SendTabBarIcon" width="28" height="27"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
