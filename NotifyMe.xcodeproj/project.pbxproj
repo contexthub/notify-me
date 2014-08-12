@@ -13,7 +13,6 @@
 		1F13227D199A908F00A71761 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F13227B199A908F00A71761 /* InfoPlist.strings */; };
 		1F13227F199A908F00A71761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F13227E199A908F00A71761 /* main.m */; };
 		1F132283199A908F00A71761 /* NMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F132282199A908F00A71761 /* NMAppDelegate.m */; };
-		1F132286199A908F00A71761 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F132284199A908F00A71761 /* Main_iPhone.storyboard */; };
 		1F13228C199A908F00A71761 /* NMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F13228B199A908F00A71761 /* NMViewController.m */; };
 		1F13228E199A908F00A71761 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F13228D199A908F00A71761 /* Images.xcassets */; };
 		1F132295199A908F00A71761 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F132294199A908F00A71761 /* XCTest.framework */; };
@@ -25,6 +24,7 @@
 		1F4BB18F199A94FC00C521A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB18E199A94FC00C521A7 /* README.md */; };
 		1F4BB191199A950200C521A7 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB190199A950200C521A7 /* release_notes.md */; };
 		1F4BB193199A950700C521A7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB192199A950700C521A7 /* LICENSE */; };
+		1F4BB19A199AA07800C521A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB198199AA07800C521A7 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,6 @@
 		1F132280199A908F00A71761 /* NotifyMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NotifyMe-Prefix.pch"; sourceTree = "<group>"; };
 		1F132281199A908F00A71761 /* NMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMAppDelegate.h; sourceTree = "<group>"; };
 		1F132282199A908F00A71761 /* NMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMAppDelegate.m; sourceTree = "<group>"; };
-		1F132285199A908F00A71761 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		1F13228A199A908F00A71761 /* NMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMViewController.h; sourceTree = "<group>"; };
 		1F13228B199A908F00A71761 /* NMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMViewController.m; sourceTree = "<group>"; };
 		1F13228D199A908F00A71761 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		1F4BB18E199A94FC00C521A7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		1F4BB190199A950200C521A7 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		1F4BB192199A950700C521A7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		1F4BB199199AA07800C521A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +130,8 @@
 				1F4BB196199A952800C521A7 /* View Controllers */,
 				1F132281199A908F00A71761 /* NMAppDelegate.h */,
 				1F132282199A908F00A71761 /* NMAppDelegate.m */,
-				1F132284199A908F00A71761 /* Main_iPhone.storyboard */,
 				1F13228D199A908F00A71761 /* Images.xcassets */,
+				1F4BB198199AA07800C521A7 /* Main.storyboard */,
 				1F132279199A908F00A71761 /* Supporting Files */,
 			);
 			path = NotifyMe;
@@ -269,8 +269,8 @@
 			files = (
 				1F4BB193199A950700C521A7 /* LICENSE in Resources */,
 				1F13228E199A908F00A71761 /* Images.xcassets in Resources */,
-				1F132286199A908F00A71761 /* Main_iPhone.storyboard in Resources */,
 				1F4BB18F199A94FC00C521A7 /* README.md in Resources */,
+				1F4BB19A199AA07800C521A7 /* Main.storyboard in Resources */,
 				1F13227D199A908F00A71761 /* InfoPlist.strings in Resources */,
 				1F4BB191199A950200C521A7 /* release_notes.md in Resources */,
 			);
@@ -340,20 +340,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		1F132284199A908F00A71761 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F132285199A908F00A71761 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
 		1F13229D199A908F00A71761 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1F13229E199A908F00A71761 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1F4BB198199AA07800C521A7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F4BB199199AA07800C521A7 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
