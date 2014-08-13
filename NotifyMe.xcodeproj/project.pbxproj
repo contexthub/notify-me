@@ -19,6 +19,9 @@
 		1F132297199A908F00A71761 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F132276199A908F00A71761 /* UIKit.framework */; };
 		1F13229F199A908F00A71761 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F13229D199A908F00A71761 /* InfoPlist.strings */; };
 		1F1322A1199A908F00A71761 /* NotifyMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1322A0199A908F00A71761 /* NotifyMeTests.m */; };
+		1F386D6D199BBE0F000947D6 /* NMSendPushTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F386D6C199BBE0F000947D6 /* NMSendPushTableViewController.m */; };
+		1F386D70199BBE23000947D6 /* NMReceiveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F386D6F199BBE23000947D6 /* NMReceiveTableViewController.m */; };
+		1F386D73199BBFB8000947D6 /* NMPushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F386D72199BBFB8000947D6 /* NMPushNotification.m */; };
 		1F4BB18D199A94EE00C521A7 /* ContextHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BB18C199A94EE00C521A7 /* ContextHub.framework */; };
 		1F4BB18F199A94FC00C521A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB18E199A94FC00C521A7 /* README.md */; };
 		1F4BB191199A950200C521A7 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB190199A950200C521A7 /* release_notes.md */; };
@@ -55,6 +58,12 @@
 		1F13229C199A908F00A71761 /* NotifyMeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NotifyMeTests-Info.plist"; sourceTree = "<group>"; };
 		1F13229E199A908F00A71761 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F1322A0199A908F00A71761 /* NotifyMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotifyMeTests.m; sourceTree = "<group>"; };
+		1F386D6B199BBE0F000947D6 /* NMSendPushTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMSendPushTableViewController.h; path = "View Controllers/Tabs/NMSendPushTableViewController.h"; sourceTree = "<group>"; };
+		1F386D6C199BBE0F000947D6 /* NMSendPushTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMSendPushTableViewController.m; path = "View Controllers/Tabs/NMSendPushTableViewController.m"; sourceTree = "<group>"; };
+		1F386D6E199BBE23000947D6 /* NMReceiveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMReceiveTableViewController.h; path = "View Controllers/Tabs/NMReceiveTableViewController.h"; sourceTree = "<group>"; };
+		1F386D6F199BBE23000947D6 /* NMReceiveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMReceiveTableViewController.m; path = "View Controllers/Tabs/NMReceiveTableViewController.m"; sourceTree = "<group>"; };
+		1F386D71199BBFB8000947D6 /* NMPushNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMPushNotification.h; path = Models/NMPushNotification.h; sourceTree = "<group>"; };
+		1F386D72199BBFB8000947D6 /* NMPushNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMPushNotification.m; path = Models/NMPushNotification.m; sourceTree = "<group>"; };
 		1F4BB18C199A94EE00C521A7 /* ContextHub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextHub.framework; sourceTree = "<group>"; };
 		1F4BB18E199A94FC00C521A7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		1F4BB190199A950200C521A7 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -64,7 +73,6 @@
 		1F4BB19F199AA56800C521A7 /* NMAboutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMAboutTableViewController.h; path = "View Controllers/Tabs/NMAboutTableViewController.h"; sourceTree = "<group>"; };
 		1F4BB1A0199AA56800C521A7 /* NMAboutTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMAboutTableViewController.m; path = "View Controllers/Tabs/NMAboutTableViewController.m"; sourceTree = "<group>"; };
 		1F4BB1A6199ADC1700C521A7 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone.storyboard; path = ../Main_iPhone.storyboard; sourceTree = "<group>"; };
-		1F4BB1A8199ADC7500C521A7 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +144,6 @@
 				1F132282199A908F00A71761 /* NMAppDelegate.m */,
 				1F13228D199A908F00A71761 /* Images.xcassets */,
 				1F4BB1A6199ADC1700C521A7 /* Main_iPhone.storyboard */,
-				1F4BB1A8199ADC7500C521A7 /* Main.storyboard */,
 				1F132279199A908F00A71761 /* Supporting Files */,
 			);
 			path = NotifyMe;
@@ -174,6 +181,8 @@
 		1F4BB194199A951D00C521A7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1F386D71199BBFB8000947D6 /* NMPushNotification.h */,
+				1F386D72199BBFB8000947D6 /* NMPushNotification.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -198,6 +207,10 @@
 		1F4BB19B199AA45500C521A7 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				1F386D6B199BBE0F000947D6 /* NMSendPushTableViewController.h */,
+				1F386D6C199BBE0F000947D6 /* NMSendPushTableViewController.m */,
+				1F386D6E199BBE23000947D6 /* NMReceiveTableViewController.h */,
+				1F386D6F199BBE23000947D6 /* NMReceiveTableViewController.m */,
 				1F4BB19F199AA56800C521A7 /* NMAboutTableViewController.h */,
 				1F4BB1A0199AA56800C521A7 /* NMAboutTableViewController.m */,
 			);
@@ -322,9 +335,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F386D6D199BBE0F000947D6 /* NMSendPushTableViewController.m in Sources */,
 				1F4BB1A1199AA56800C521A7 /* NMAboutTableViewController.m in Sources */,
+				1F386D70199BBE23000947D6 /* NMReceiveTableViewController.m in Sources */,
 				1F4BB19E199AA49300C521A7 /* NMTabBarController.m in Sources */,
 				1F13227F199A908F00A71761 /* main.m in Sources */,
+				1F386D73199BBFB8000947D6 /* NMPushNotification.m in Sources */,
 				1F132283199A908F00A71761 /* NMAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
