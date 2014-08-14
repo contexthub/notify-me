@@ -7,40 +7,66 @@
 //
 
 #import "NMAppDelegate.h"
+#import <ContextHub/ContextHub.h>
+
+#import "NMConstants.h"
 
 @implementation NMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // Register with ContextHub
+#ifdef DEBUG
+    // This tells ContextHub that you are running a debug build.
+    [[ContextHub sharedInstance] setDebug:TRUE];
+#endif
+    
+    //Register the app id of the application you created on https://app.contexthub.com
+    [ContextHub registerWithAppId:@"YOUR-PUSH-APP-ID-HERE"];
+    
+    // Register for remote notifications
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound ];
+    
     return YES;
 }
 							
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+#pragma mark - Remote Notifications
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Set up the alias, tag, and register for push notifications on the server
+    NSString *alias = [[UIDevice currentDevice] name];
+    NSString *tag = NMDeviceTag;
+    
+    [[CCHPush sharedInstance] registerDeviceToken:deviceToken alias:alias tags:@[tag] completionHandler:^(NSError *error) {
+        if (!error) {
+            NSLog(@"Successfully registered device with alias %@ and tags %@", [[UIDevice currentDevice] name], tag);
+        }
+        else {
+            NSLog(@"Error: %@", error);
+        }
+    }];
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"Did fail to register %@", error);
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    // Define our fetch completion handler which is called by ContextHub if the push wasn't a push for CCHSubscriptionService
+    void (^fetchCompletionHandler)(UIBackgroundFetchResult) = ^(UIBackgroundFetchResult result){
+        NSLog(@"Push received: %@", userInfo);
+        NSString *message = [userInfo valueForKeyPath:@"aps.alert"];
+        
+        // Pop an alert about our message
+        [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+        
+        // This push resulted in no new background data
+        completionHandler(UIBackgroundFetchResultNoData);
+    };
+    
+    // Let ContextHub process the push
+    [[CCHPush sharedInstance] application:application didReceiveRemoteNotification:userInfo completionHandler:fetchCompletionHandler];
 }
 
 @end
