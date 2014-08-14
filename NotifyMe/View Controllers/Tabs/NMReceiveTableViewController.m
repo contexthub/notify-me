@@ -53,7 +53,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NMReceiveTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NMReceiveTableViewCellIdentifier" forIndexPath:indexPath];
-    NMPushNotification *notification = [[NMPushNotificationStore sharedInstance].notifications[indexPath.row];
+    NMPushNotification *notification = [NMPushNotificationStore sharedInstance].notifications[indexPath.row];
     
     // Configure the cell...
     cell.alertLabel.text = [NSString stringWithFormat:@"Alert: %@", notification.alert];
