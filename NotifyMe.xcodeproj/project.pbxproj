@@ -32,6 +32,7 @@
 		1FF32812199C3E3500F4BE0B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32811199C3E3500F4BE0B /* CoreLocation.framework */; };
 		1FF32814199C3E3D00F4BE0B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32813199C3E3D00F4BE0B /* CoreMotion.framework */; };
 		1FF32816199C3E4400F4BE0B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32815199C3E4400F4BE0B /* MobileCoreServices.framework */; };
+		1FF32819199D562D00F4BE0B /* NMPushNotificationStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF32818199D562D00F4BE0B /* NMPushNotificationStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		1FF32811199C3E3500F4BE0B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1FF32813199C3E3D00F4BE0B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		1FF32815199C3E4400F4BE0B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		1FF32817199D562D00F4BE0B /* NMPushNotificationStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMPushNotificationStore.h; path = Models/NMPushNotificationStore.h; sourceTree = "<group>"; };
+		1FF32818199D562D00F4BE0B /* NMPushNotificationStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMPushNotificationStore.m; path = Models/NMPushNotificationStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +200,8 @@
 			children = (
 				1F386D71199BBFB8000947D6 /* NMPushNotification.h */,
 				1F386D72199BBFB8000947D6 /* NMPushNotification.m */,
+				1FF32817199D562D00F4BE0B /* NMPushNotificationStore.h */,
+				1FF32818199D562D00F4BE0B /* NMPushNotificationStore.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				1F386D6D199BBE0F000947D6 /* NMSendPushTableViewController.m in Sources */,
 				1F4BB1A1199AA56800C521A7 /* NMAboutTableViewController.m in Sources */,
 				1F386D70199BBE23000947D6 /* NMReceiveTableViewController.m in Sources */,
+				1FF32819199D562D00F4BE0B /* NMPushNotificationStore.m in Sources */,
 				1F4BB19E199AA49300C521A7 /* NMTabBarController.m in Sources */,
 				1F13227F199A908F00A71761 /* main.m in Sources */,
 				1F386D73199BBFB8000947D6 /* NMPushNotification.m in Sources */,
