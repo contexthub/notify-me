@@ -41,7 +41,7 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
 
 // Send a message to a device
 - (void)pushMessage:(NSString *)message toDeviceID:(NSString *)deviceID {
-    NSDictionary *userInfo = @{ @"alert":message, @"sound":@"default" };
+    NSDictionary *userInfo = @{ @"alert":message, @"sound":@"default", @"customPayload":self.customPayloadTextField.text };
     [[CCHPush sharedInstance] sendNotificationToDevices:@[deviceID] userInfo:userInfo completionHandler:^(NSError *error) {
         
         if (!error) {
@@ -58,7 +58,7 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
 
 // Send a message to aliases
 - (void)pushMessage:(NSString *)message toAliases:(NSString *)aliases {
-    NSDictionary *userInfo = @{ @"alert":message, @"sound":@"default" };
+    NSDictionary *userInfo = @{ @"alert":message, @"sound":@"default", @"customPayload":self.customPayloadTextField.text };
     
     NSString *aliasesWithoutWhitespace = [aliases stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSArray *aliasesArray = [aliasesWithoutWhitespace componentsSeparatedByString:@","];
@@ -78,7 +78,7 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
 
 // Send a message to tags
 - (void)pushMessage:(NSString *)message toTags:(NSString *)tags {
-    NSDictionary *userInfo = @{ @"alert":message, @"sound":@"default" };
+    NSDictionary *userInfo = @{ @"alert":message, @"sound":@"default", @"customPayload":self.customPayloadTextField.text };
     
     NSString *tagsWithoutWhitespace = [tags stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSArray *tagsArray = [tagsWithoutWhitespace componentsSeparatedByString:@","];
