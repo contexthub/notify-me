@@ -29,6 +29,9 @@
 		1F4BB19E199AA49300C521A7 /* NMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB19D199AA49300C521A7 /* NMTabBarController.m */; };
 		1F4BB1A1199AA56800C521A7 /* NMAboutTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB1A0199AA56800C521A7 /* NMAboutTableViewController.m */; };
 		1F4BB1A7199ADC1700C521A7 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB1A6199ADC1700C521A7 /* Main_iPhone.storyboard */; };
+		1FF32812199C3E3500F4BE0B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32811199C3E3500F4BE0B /* CoreLocation.framework */; };
+		1FF32814199C3E3D00F4BE0B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32813199C3E3D00F4BE0B /* CoreMotion.framework */; };
+		1FF32816199C3E4400F4BE0B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32815199C3E4400F4BE0B /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,10 @@
 		1F4BB19F199AA56800C521A7 /* NMAboutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMAboutTableViewController.h; path = "View Controllers/Tabs/NMAboutTableViewController.h"; sourceTree = "<group>"; };
 		1F4BB1A0199AA56800C521A7 /* NMAboutTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMAboutTableViewController.m; path = "View Controllers/Tabs/NMAboutTableViewController.m"; sourceTree = "<group>"; };
 		1F4BB1A6199ADC1700C521A7 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone.storyboard; path = ../Main_iPhone.storyboard; sourceTree = "<group>"; };
+		1FF3280D199C3AC000F4BE0B /* NMConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMConstants.h; sourceTree = "<group>"; };
+		1FF32811199C3E3500F4BE0B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1FF32813199C3E3D00F4BE0B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		1FF32815199C3E4400F4BE0B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +87,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FF32816199C3E4400F4BE0B /* MobileCoreServices.framework in Frameworks */,
+				1FF32814199C3E3D00F4BE0B /* CoreMotion.framework in Frameworks */,
+				1FF32812199C3E3500F4BE0B /* CoreLocation.framework in Frameworks */,
 				1F4BB18D199A94EE00C521A7 /* ContextHub.framework in Frameworks */,
 				1F132275199A908F00A71761 /* CoreGraphics.framework in Frameworks */,
 				1F132277199A908F00A71761 /* UIKit.framework in Frameworks */,
@@ -127,7 +137,10 @@
 			children = (
 				1F4BB18C199A94EE00C521A7 /* ContextHub.framework */,
 				1F132274199A908F00A71761 /* CoreGraphics.framework */,
+				1FF32811199C3E3500F4BE0B /* CoreLocation.framework */,
+				1FF32813199C3E3D00F4BE0B /* CoreMotion.framework */,
 				1F132272199A908F00A71761 /* Foundation.framework */,
+				1FF32815199C3E4400F4BE0B /* MobileCoreServices.framework */,
 				1F132276199A908F00A71761 /* UIKit.framework */,
 				1F132294199A908F00A71761 /* XCTest.framework */,
 			);
@@ -142,6 +155,7 @@
 				1F4BB196199A952800C521A7 /* View Controllers */,
 				1F132281199A908F00A71761 /* NMAppDelegate.h */,
 				1F132282199A908F00A71761 /* NMAppDelegate.m */,
+				1FF3280D199C3AC000F4BE0B /* NMConstants.h */,
 				1F13228D199A908F00A71761 /* Images.xcassets */,
 				1F4BB1A6199ADC1700C521A7 /* Main_iPhone.storyboard */,
 				1F132279199A908F00A71761 /* Supporting Files */,
