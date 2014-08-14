@@ -12,6 +12,9 @@
 
 @property (nonatomic, copy) NSString *alert;
 @property (nonatomic, copy) NSDictionary *customPayload;
+@property (nonatomic) BOOL backgroundPushNotification;
 @property (nonatomic, strong) NSDate *timeReceivedDate;
+
+- (instancetype)initWithAlert:(NSString *)alert customPayload:(NSDictionary *)customPayload background:(BOOL)background;
 
 @end

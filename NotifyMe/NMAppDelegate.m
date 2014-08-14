@@ -57,12 +57,20 @@
     void (^fetchCompletionHandler)(UIBackgroundFetchResult) = ^(UIBackgroundFetchResult result){
         NSLog(@"Push received: %@", userInfo);
         NSString *message = [userInfo valueForKeyPath:@"aps.alert"];
+        NSDictionary *customPayload = [userInfo valueForKeyPath:@"aps.customPayload"];
+        BOOL background = [userInfo valueForKey:@"content-available"] ? YES : NO;
+        
+        // Add the message to our store
+        NMPushNotification *newNotification = [[NMPushNotification alloc] initWithAlert:message customPayload:customPayload background:background];
+        [[NMPushNotificationStore sharedInstance].notifications addObject:newNotification];
         
         // Pop an alert about our message
         [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
         
         // This push resulted in no new background data
         completionHandler(UIBackgroundFetchResultNoData);
+        // Call the completionhandler based on whether your push resulted in data or not 
+        completionHandler(UIBackgroundFetchResultNewData);
     };
     
     // Let ContextHub process the push

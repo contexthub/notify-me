@@ -10,12 +10,13 @@
 
 @implementation NMPushNotification
 
-- (instancetype)init {
+- (instancetype)initWithAlert:(NSString *)alert customPayload:(NSDictionary *)customPayload background:(BOOL)background {
     self = [super init];
     
     if (self) {
-        _alert = @"";
-        _customPayload = [NSDictionary dictionary];
+        _alert = alert;
+        _customPayload = customPayload;
+        _backgroundPushNotification = background;
         _timeReceivedDate = [NSDate date];
         
         return self;
