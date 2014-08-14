@@ -10,4 +10,9 @@
 
 @interface NMReceiveTableViewCell : UITableViewCell
 
+@property (nonatomic, weak) IBOutlet UILabel *alertLabel;
+@property (nonatomic, weak) IBOutlet UILabel *customPayloadLabel;
+@property (nonatomic, weak) IBOutlet UILabel *timeStampLabel;
+
+
 @end
