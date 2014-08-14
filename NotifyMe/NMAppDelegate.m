@@ -9,6 +9,8 @@
 #import "NMAppDelegate.h"
 #import <ContextHub/ContextHub.h>
 
+#import "NMPushNotification.h"
+#import "NMPushNotificationStore.h"
 #import "NMConstants.h"
 
 @implementation NMAppDelegate
@@ -22,7 +24,8 @@
 #endif
     
     //Register the app id of the application you created on https://app.contexthub.com
-    [ContextHub registerWithAppId:@"YOUR-PUSH-APP-ID-HERE"];
+    //[ContextHub registerWithAppId:@"YOUR-PUSH-APP-ID-HERE"];
+    [ContextHub registerWithAppId:@"4e0aad2a-b052-42e0-93ee-6f024d11de10"];
     
     // Register for remote notifications
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound ];
@@ -67,8 +70,6 @@
         // Pop an alert about our message
         [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
         
-        // This push resulted in no new background data
-        completionHandler(UIBackgroundFetchResultNoData);
         // Call the completionhandler based on whether your push resulted in data or not 
         completionHandler(UIBackgroundFetchResultNewData);
     };
