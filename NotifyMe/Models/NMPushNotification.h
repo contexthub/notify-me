@@ -11,6 +11,7 @@
 @interface NMPushNotification : NSObject
 
 @property (nonatomic, copy) NSString *alert;
-@property (nonatomic, strong) NSDictionary *customPayload;
+@property (nonatomic, copy) NSDictionary *customPayload;
+@property (nonatomic, strong) NSDate *timeReceivedDate;
 
 @end

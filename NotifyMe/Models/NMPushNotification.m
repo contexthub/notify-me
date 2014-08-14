@@ -10,4 +10,18 @@
 
 @implementation NMPushNotification
 
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        _alert = @"";
+        _customPayload = [NSDictionary dictionary];
+        _timeReceivedDate = [NSDate date];
+        
+        return self;
+    }
+    
+    return nil;
+}
+
 @end
