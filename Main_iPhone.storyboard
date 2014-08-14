@@ -155,7 +155,7 @@
             </objects>
             <point key="canvasLocation" x="193" y="-249"/>
         </scene>
-        <!--Send Push Table View Controller-->
+        <!--Send Push Table View Controller - Push-->
         <scene sceneID="E7b-lT-QFr">
             <objects>
                 <tableViewController id="khh-7w-HkU" customClass="NMSendPushTableViewController" sceneMemberID="viewController">
@@ -166,21 +166,22 @@
                         <sections>
                             <tableViewSection headerTitle="Send message" id="rK7-5S-3dq">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="Pe1-3A-ufJ">
-                                        <rect key="frame" x="0.0" y="119" width="320" height="60"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Pe1-3A-ufJ">
+                                        <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pe1-3A-ufJ" id="Tck-Xd-pqt">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bQA-2u-0Mq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+                                                <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Message" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cTE-Wl-DgH">
+                                                    <rect key="frame" x="15" y="7" width="285" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="13"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="khh-7w-HkU" id="6c0-kV-oIG"/>
+                                                    </connections>
+                                                </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -188,8 +189,8 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="By type" id="iyM-KT-64e">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4z7-vR-nZg" detailTextLabel="LYZ-Bs-PV1" style="IBUITableViewCellStyleSubtitle" id="q78-uF-XMS">
-                                        <rect key="frame" x="0.0" y="227" width="320" height="44"/>
+                                    <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4z7-vR-nZg" detailTextLabel="LYZ-Bs-PV1" style="IBUITableViewCellStyleSubtitle" id="q78-uF-XMS">
+                                        <rect key="frame" x="0.0" y="211" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q78-uF-XMS" id="KvS-Eb-f2n">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -212,8 +213,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="EMn-6t-4Dg" detailTextLabel="DU0-qF-CRl" style="IBUITableViewCellStyleSubtitle" id="ZRb-gF-8AC">
-                                        <rect key="frame" x="0.0" y="271" width="320" height="44"/>
+                                    <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="EMn-6t-4Dg" detailTextLabel="DU0-qF-CRl" style="IBUITableViewCellStyleSubtitle" id="ZRb-gF-8AC">
+                                        <rect key="frame" x="0.0" y="255" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZRb-gF-8AC" id="ZOd-yd-Wxm">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -236,8 +237,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="rXQ-yn-AYK" detailTextLabel="I90-DV-hMW" style="IBUITableViewCellStyleSubtitle" id="exi-dN-WLw">
-                                        <rect key="frame" x="0.0" y="315" width="320" height="44"/>
+                                    <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="rXQ-yn-AYK" detailTextLabel="I90-DV-hMW" style="IBUITableViewCellStyleSubtitle" id="exi-dN-WLw">
+                                        <rect key="frame" x="0.0" y="299" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="exi-dN-WLw" id="F5h-F8-Q2I">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -265,17 +266,20 @@
                             <tableViewSection headerTitle="To Device(s)" footerTitle="Comma separate your aliases and tags to send to more than one at once" id="pzb-6h-L8f">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="nya-o1-Qyr">
-                                        <rect key="frame" x="0.0" y="407" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="391" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nya-o1-Qyr" id="cvu-9C-QWq">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Devices to send to" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jox-yO-V35">
-                                                    <rect key="frame" x="20" y="7" width="280" height="30"/>
+                                                <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Device id, aliases, or tags to send to" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jox-yO-V35">
+                                                    <rect key="frame" x="15" y="7" width="285" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="13"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="khh-7w-HkU" id="bmD-O6-Clf"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -285,17 +289,20 @@
                             <tableViewSection headerTitle="With custom payload" footerTitle="All message data with custom payload must be under 256 bytes" id="Azr-cb-wTw">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="yf7-8V-wl9">
-                                        <rect key="frame" x="0.0" y="543" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="527" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yf7-8V-wl9" id="IbT-mX-bKQ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Custom payload" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NMh-LO-TZ8">
-                                                    <rect key="frame" x="20" y="7" width="280" height="30"/>
+                                                    <rect key="frame" x="15" y="7" width="285" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="13"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="khh-7w-HkU" id="vfb-Ol-3kJ"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -308,7 +315,21 @@
                             <outlet property="delegate" destination="khh-7w-HkU" id="1qc-do-Abe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ePC-gw-Yra"/>
+                    <navigationItem key="navigationItem" title="Push" id="ePC-gw-Yra">
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="0da-u5-vsd">
+                            <connections>
+                                <action selector="sendPush:" destination="khh-7w-HkU" id="2K4-9H-PAz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="alertTextField" destination="cTE-Wl-DgH" id="PFa-58-cTY"/>
+                        <outlet property="customPayloadTextField" destination="NMh-LO-TZ8" id="Dwx-I2-uuf"/>
+                        <outlet property="devicesTextField" destination="jox-yO-V35" id="hYw-Yx-1Da"/>
+                        <outletCollection property="cells" destination="q78-uF-XMS" id="nH5-O2-8F9"/>
+                        <outletCollection property="cells" destination="ZRb-gF-8AC" id="f71-86-N6k"/>
+                        <outletCollection property="cells" destination="exi-dN-WLw" id="nrp-za-JLF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4M-Ur-7fa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
