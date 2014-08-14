@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NMSendPushTableViewController : UITableViewController
+@interface NMSendPushTableViewController : UITableViewController <UITextFieldDelegate>
 
 @end

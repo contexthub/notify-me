@@ -10,8 +10,14 @@
 
 @interface NMSendPushTableViewController ()
 
+@property (nonatomic, weak) IBOutlet UITextView *alertTextView;
+
 @end
 
 @implementation NMSendPushTableViewController
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    return YES;
+}
 
 @end
