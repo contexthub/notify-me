@@ -280,6 +280,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = ChaiOne;
 				TargetAttributes = {
+					1F13226E199A908E00A71761 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					1F132292199A908F00A71761 = {
 						TestTargetID = 1F13226E199A908E00A71761;
 					};
