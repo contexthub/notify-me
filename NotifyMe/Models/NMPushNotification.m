@@ -25,4 +25,28 @@
     return nil;
 }
 
+#pragma mark - NSCoding
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    
+    if (self) {
+        _alert = [aDecoder decodeObjectForKey:@"alert"];
+        _customPayload = [aDecoder decodeObjectForKey:@"payload"];
+        _backgroundPushNotification = [aDecoder decodeBoolForKey:@"background"];
+        _timeReceivedDate = [aDecoder decodeObjectForKey:@"time"];
+        
+        return self;
+    }
+    
+    return nil;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.alert forKey:@"alert"];
+    [aCoder encodeObject:self.customPayload forKey:@"payload"];
+    [aCoder encodeBool:self.backgroundPushNotification forKey:@"background"];
+    [aCoder encodeObject:self.timeReceivedDate forKey:@"time"];
+}
+
 @end

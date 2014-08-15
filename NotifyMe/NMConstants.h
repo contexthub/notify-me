@@ -9,6 +9,11 @@
 #ifndef NotifyMe_NMConstants_h
 #define NotifyMe_NMConstants_h
 
-NSString * const NMDeviceTag = @"device-tag";
+static NSString * const NMDeviceFirstTag            = @"device-firsttag";
+static NSString * const NMDeviceSecondTag           = @"device-secondtag";
+
+static NSString * const NMNotificationsFileName     = @"notifications.plist";
+static NSString * const NMNewPushNotification       = @"NMNewPushNotification";
+static NSString * const NMPasteboardName            = @"NMPasteboard";
 
 #endif

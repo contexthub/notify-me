@@ -12,6 +12,7 @@
 #import "NMPushNotificationStore.h"
 
 #import "NMReceiveTableViewCell.h"
+#import "NMConstants.h"
 
 @interface NMReceiveTableViewController ()
 
@@ -21,48 +22,45 @@
 
 @implementation NMReceiveTableViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Set the timestamp style
     self.dateFormatter = [[NSDateFormatter alloc] init];
     [self.dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [self.dateFormatter setTimeStyle:NSDateFormatterLongStyle];
+    
+    // Listen to notifications about new push notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newNotification:) name:NMNewPushNotification object:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
+#pragma mark - Actions
+
+- (IBAction)clearNotifications:(id)sender {
+    [[NMPushNotificationStore sharedInstance] deleteNotifications];
     [self.tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Events
+
+- (void)newNotification:(NSNotification *)notification {
+    [self.tableView reloadData];
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table View Data Source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-
-    // Return the number of rows in the section.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[NMPushNotificationStore sharedInstance].notifications count];
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NMReceiveTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NMReceiveTableViewCellIdentifier" forIndexPath:indexPath];
     NMPushNotification *notification = [NMPushNotificationStore sharedInstance].notifications[indexPath.row];
     
-    // Configure the cell...
     cell.alertLabel.text = [NSString stringWithFormat:@"Alert: %@", notification.alert];
     
     NSString *customPayloadText = notification.customPayload ? @"Yes" : @"No";
@@ -74,9 +72,7 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
 }
 

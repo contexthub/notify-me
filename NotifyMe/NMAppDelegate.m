@@ -24,8 +24,7 @@
 #endif
     
     //Register the app id of the application you created on https://app.contexthub.com
-    //[ContextHub registerWithAppId:@"YOUR-PUSH-APP-ID-HERE"];
-    [ContextHub registerWithAppId:@"4e0aad2a-b052-42e0-93ee-6f024d11de10"];
+    [ContextHub registerWithAppId:@"YOUR-PUSH-APP-ID-HERE"];
     
     // Register for remote notifications
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound ];
@@ -36,13 +35,24 @@
 #pragma mark - Remote Notifications
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    // Set up the alias, tag, and register for push notifications on the server
+    // Set up the alias, tags, and register for push notifications on the server
     NSString *alias = [[UIDevice currentDevice] name];
-    NSString *tag = NMDeviceTag;
+    NSArray *tags = @[NMDeviceFirstTag, NMDeviceSecondTag];
     
-    [[CCHPush sharedInstance] registerDeviceToken:deviceToken alias:alias tags:@[tag] completionHandler:^(NSError *error) {
+    [[CCHPush sharedInstance] registerDeviceToken:deviceToken alias:alias tags:tags completionHandler:^(NSError *error) {
+        
         if (!error) {
-            NSLog(@"Successfully registered device with alias %@ and tags %@", [[UIDevice currentDevice] name], tag);
+            // Build tag string
+            __block NSString *tagString = tags[0];
+            [tags enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                
+                // Skip over the first time
+                if (idx != 0) {
+                    tagString = [tagString stringByAppendingString:[NSString stringWithFormat:@", %@", obj]];
+                }
+            }];
+            
+            NSLog(@"Successfully registered device with alias %@ and tags %@", [[UIDevice currentDevice] name], tagString);
         }
         else {
             NSLog(@"Error: %@", error);
@@ -60,15 +70,18 @@
     void (^fetchCompletionHandler)(UIBackgroundFetchResult) = ^(UIBackgroundFetchResult result){
         NSLog(@"Push received: %@", userInfo);
         NSString *message = [userInfo valueForKeyPath:@"aps.alert"];
-        NSDictionary *customPayload = [userInfo valueForKeyPath:@"aps.customPayload"];
+        NSDictionary *customPayload = [userInfo valueForKey:@"payload"];
         BOOL background = [userInfo valueForKey:@"content-available"] ? YES : NO;
         
         // Add the message to our store
         NMPushNotification *newNotification = [[NMPushNotification alloc] initWithAlert:message customPayload:customPayload background:background];
-        [[NMPushNotificationStore sharedInstance].notifications addObject:newNotification];
+        [[NMPushNotificationStore sharedInstance] addNotification:newNotification];
         
         // Pop an alert about our message
         [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+        
+        // Post a notification that there's a new push notification so our receive table view can reload data
+        [[NSNotificationCenter defaultCenter] postNotificationName:NMNewPushNotification object:nil];
         
         // Call the completionhandler based on whether your push resulted in data or not 
         completionHandler(UIBackgroundFetchResultNewData);

@@ -15,5 +15,8 @@
 @property (nonatomic, strong) NSMutableArray *notifications;
 
 + (instancetype)sharedInstance;
+- (void)addNotification:(NMPushNotification *)notification;
+- (void)deleteNotifications;
+- (void)saveNotifications;
 
 @end
