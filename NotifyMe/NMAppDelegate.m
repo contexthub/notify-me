@@ -34,6 +34,11 @@
     
     return YES;
 }
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    // Clear badge
+    application.applicationIconBadgeNumber = 0;
+}
 							
 #pragma mark - Remote Notifications
 
@@ -84,6 +89,9 @@
         if (application.applicationState == UIApplicationStateActive && !background) {
             [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
         }
+        
+        // Increase badge number by 1
+        application.applicationIconBadgeNumber += 1;
         
         // Post a notification that there's a new push notification so our receive table view can reload data
         [[NSNotificationCenter defaultCenter] postNotificationName:NMNewPushNotification object:nil];
