@@ -298,7 +298,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Message" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cTE-Wl-DgH">
+                                                <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Message" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cTE-Wl-DgH">
                                                     <rect key="frame" x="15" y="7" width="285" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="13"/>
@@ -312,7 +312,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="By type" id="iyM-KT-64e">
+                            <tableViewSection headerTitle="Type" id="iyM-KT-64e">
                                 <cells>
                                     <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4z7-vR-nZg" detailTextLabel="LYZ-Bs-PV1" style="IBUITableViewCellStyleSubtitle" id="q78-uF-XMS">
                                         <rect key="frame" x="0.0" y="211" width="320" height="44"/>
@@ -388,7 +388,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="To Device ID" id="pzb-6h-L8f">
+                            <tableViewSection headerTitle="Device ID" id="pzb-6h-L8f">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="nya-o1-Qyr">
                                         <rect key="frame" x="0.0" y="391" width="320" height="44"/>
@@ -397,7 +397,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Device id, aliases, or tags to send to" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jox-yO-V35">
+                                                <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Device id, aliases, or tags to send to" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jox-yO-V35">
                                                     <rect key="frame" x="15" y="7" width="285" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="13"/>
@@ -411,7 +411,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="With custom payload" footerTitle="All message data with custom payload must be under 256 bytes" id="Azr-cb-wTw">
+                            <tableViewSection headerTitle="Custom payload" footerTitle="All message data with custom payload must be under 256 bytes" id="Azr-cb-wTw">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="yf7-8V-wl9">
                                         <rect key="frame" x="0.0" y="483" width="320" height="44"/>
@@ -420,7 +420,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Custom payload" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NMh-LO-TZ8">
+                                                <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Custom payload" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NMh-LO-TZ8">
                                                     <rect key="frame" x="15" y="7" width="285" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="13"/>
@@ -434,7 +434,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="And visibility" footerTitle="Background notifications get processed even if the app isn't open" id="97L-qJ-F37">
+                            <tableViewSection headerTitle="Visibility" footerTitle="Background notifications get processed even if the app isn't open" id="97L-qJ-F37">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Mth-v0-eYt" style="IBUITableViewCellStyleDefault" id="Spa-GE-MyH">
                                         <rect key="frame" x="0.0" y="619" width="320" height="44"/>

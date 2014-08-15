@@ -76,7 +76,7 @@ typedef NS_ENUM(NSUInteger, NMDeviceSection) {
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     
     if (section == NMDeviceSectionDevice) {
-        return @"Device id is immutable after it has been assigned from ContextHub";
+        return @"Device id will not change after it has been assigned from ContextHub";
     }
     
     return @"";

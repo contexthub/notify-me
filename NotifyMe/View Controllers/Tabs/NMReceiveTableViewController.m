@@ -60,11 +60,15 @@
     return [[NMPushNotificationStore sharedInstance].notifications count];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"Notifications";
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NMReceiveTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NMReceiveTableViewCellIdentifier" forIndexPath:indexPath];
     NMPushNotification *notification = [NMPushNotificationStore sharedInstance].notifications[indexPath.row];
     
-    NSString *alertText = notification.alert ? notification.alert : @"none";
+    NSString *alertText = notification.alert ? notification.alert : @"None";
     NSString *payloadText = notification.payload ? @"Yes" : @"No";
     NSString *backgroundText = notification.background ? @"Yes" : @"No";
     

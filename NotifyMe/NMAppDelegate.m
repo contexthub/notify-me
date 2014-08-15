@@ -74,7 +74,7 @@
         NSLog(@"Push received: %@", userInfo);
         NSString *message = [userInfo valueForKeyPath:@"aps.alert"];
         NSDictionary *customPayload = [userInfo valueForKey:@"payload"];
-        BOOL background = ([userInfo valueForKey:@"content-available"] == nil) ? YES : NO;
+        BOOL background = ([userInfo valueForKeyPath:@"aps.content-available"] != nil) ? YES : NO;
         
         // Add the message to our store
         NMPushNotification *newNotification = [[NMPushNotification alloc] initWithAlert:message customPayload:customPayload background:background];

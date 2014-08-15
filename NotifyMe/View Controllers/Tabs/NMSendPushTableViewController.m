@@ -41,6 +41,7 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
     [super viewDidLoad];
     
     self.selectedIndex = 0;
+    self.devicesTextField.text = [ContextHub deviceId];
     self.backgroundSwitch.on = NO;
 }
 
@@ -190,16 +191,16 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
         case NMSendPushSectionMessage:
             return @"Send message";
         case NMSendPushSectionType:
-            return @"By type";
+            return @"Type";
         case NMSendPushSectionDevice:
         {
             switch (self.selectedIndex) {
                 case NMPushTypeDeviceID:
-                    return @"To Device ID";
+                    return @"Device ID";
                 case NMPushTypeAlias:
-                    return @"To Aliases";
+                    return @"Aliases";
                 case NMPushTypeTag:
-                    return @"To Tags";
+                    return @"Tags";
                 default:
                     return @"To ...";
                     break;
@@ -208,9 +209,9 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
             break;
         }
         case NMSendPushSectionPayload:
-            return @"With custom payload";
+            return @"Custom payload";
         case NMSendPushSectionBackground:
-            return @"And Visibility";
+            return @"Visibility";
         default:
             return @"";
             break;

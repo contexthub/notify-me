@@ -25,8 +25,9 @@
 {
     [super viewDidLoad];
     
-    self.alertLabel.text = self.notification.background ? @"none" : self.notification.alert;
-    self.payloadLabel.text = self.notification.payload[@"text"];
+    // Setup view
+    self.alertLabel.text = self.notification.background ? @"None" : self.notification.alert;
+    self.payloadLabel.text = self.notification.payload[@"text"] ? self.notification.payload[@"text"] : @"None";
     self.backgroundLabel.text = self.notification.background ? @"Yes" : @"No";
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
