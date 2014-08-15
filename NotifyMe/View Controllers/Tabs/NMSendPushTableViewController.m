@@ -53,96 +53,92 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
     [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
 }
 
+#pragma mark - Helper Methods
+- (NSDictionary *)buildUserInfo {
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    userInfo[@"sound"] = @"default";
+    
+    // If background, then don't have an alert (backgrounds can have alerts, it only affects whether the app will wake up)
+    // Note: background pushes must have either the alert key or sound key (even if keys are "") or they will not be processed
+    if (self.backgroundSwitch.on) {
+        userInfo[@"content-available"] = @1;
+    } else {
+        userInfo[@"alert"] = self.messageTextField.text;
+    }
+    
+    // Additional payloads can be strings, arrays or dictionaries, but entire push message must fit in 256 bytes to be delivered
+    NSString *payloadText = [self.payloadTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if (![payloadText isEqualToString:@""]) {
+        userInfo[@"payload"] = @{ @"text":self.payloadTextField.text };
+    }
+    
+    return userInfo;
+}
+
 #pragma mark - Push Methods
 
 // Send a message to a device
-- (void)pushMessage:(NSString *)message toDeviceID:(NSString *)deviceID {
-    NSDictionary *userInfo = nil;
-    
-    // If background, only make a noise (sound key), if foreground, show an alert too
-    // Note: background pushes must have either the alert key or sound key (even if sound key is "") or it will not be processed
-    // Additional payloads can be strings, arrays or dictionaries, but entire push message must fit in 256 bytes to be delivered
-    if (self.backgroundSwitch.on) {
-        userInfo = @{ @"sound":@"default", @"payload": @{ @"text":self.payloadTextField.text }, @"content-available":@1 };
-    } else {
-        userInfo = @{ @"alert":message, @"sound":@"default", @"payload": @{ @"text":self.payloadTextField.text } };
-    }
+- (void)pushMessageToDeviceID:(NSString *)deviceID {
+    NSDictionary *userInfo = [self buildUserInfo];
+    NSString *pushType = self.backgroundSwitch.on ? @"Background" : @"Foreground";
     
     // Send the push
     [[CCHPush sharedInstance] sendNotificationToDevices:@[deviceID] userInfo:userInfo completionHandler:^(NSError *error) {
         
         if (!error) {
-            NSString *alertMessage = [NSString stringWithFormat:@"Push sent successfully to device id: %@", deviceID];
+            NSString *alertMessage = [NSString stringWithFormat:@"%@ push sent successfully to device id: %@", pushType, deviceID];
             [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:alertMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
-            NSLog(@"NM: Push successfully sent to device id: %@", deviceID);
+            NSLog(@"NM: %@ push successfully sent to device id: %@", pushType, deviceID);
         } else {
-            NSString *alertMessage = [NSString stringWithFormat:@"Push failed to send to device id: %@", deviceID];
+            NSString *alertMessage = [NSString stringWithFormat:@"%@ push failed to send to device id: %@", pushType, deviceID];
             [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:alertMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
-            NSLog(@"NM: Push failed to send to device id '%@' with error: %@", deviceID, error);
+            NSLog(@"NM: %@ push failed to send to device id '%@' with error: %@", pushType, deviceID, error);
         }
     }];
 }
 
 // Send a message to aliases
-- (void)pushMessage:(NSString *)message toAliases:(NSString *)aliasesString {
-    NSDictionary *userInfo = nil;
-    
-    // If background, only make a noise (sound key), if foreground, show an alert too
-    // Note: background pushes must have either the alert key or sound key (even if keys are "") or they will not be processed
-    // Additional payloads can be strings, arrays or dictionaries, but entire push message must fit in 256 bytes to be delivered
-    if (self.backgroundSwitch.on) {
-        userInfo = @{ @"sound":@"default", @"payload": @{ @"text":self.payloadTextField.text }, @"content-available":@1 };
-    } else {
-        userInfo = @{ @"alert":message, @"sound":@"default", @"payload": @{ @"text":self.payloadTextField.text } };
-    }
+- (void)pushMessageToAliases:(NSString *)aliasesString {
+    NSDictionary *userInfo = [self buildUserInfo];
+    NSString *pushType = self.backgroundSwitch.on ? @"Background" : @"Foreground";
     
     // Turn the alias string into an array
-    NSString *aliasesWithoutWhitespace = [aliasesString stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSArray *aliasesArray = [aliasesWithoutWhitespace componentsSeparatedByString:@","];
+    NSArray *aliasesArray = [aliasesString componentsSeparatedByString:@","];
     
     // Send the push
     [[CCHPush sharedInstance] sendNotificationToAliases:aliasesArray userInfo:userInfo completionHandler:^(NSError *error) {
         
         if (!error) {
-            NSString *alertMessage = [NSString stringWithFormat:@"Push sent successfully to aliases: %@", aliasesWithoutWhitespace];
+            NSString *alertMessage = [NSString stringWithFormat:@"%@ push sent successfully to aliases: %@", pushType, aliasesString];
             [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:alertMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
-            NSLog(@"NM: Push successfully sent to aliases: %@", aliasesWithoutWhitespace);
+            NSLog(@"NM: %@ push successfully sent to aliases: %@", pushType, aliasesString);
         } else {
-            NSString *alertMessage = [NSString stringWithFormat:@"Push failed to send to aliases: %@", aliasesWithoutWhitespace];
+            NSString *alertMessage = [NSString stringWithFormat:@"%@ push failed to send to aliases: %@", pushType, aliasesString];
             [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:alertMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
-            NSLog(@"NM: Push failed to send to aliases '%@' with error: %@", aliasesWithoutWhitespace, error);
+            NSLog(@"NM: %@ push failed to send to aliases '%@' with error: %@", pushType, aliasesString, error);
         }
     }];
 }
 
 // Send a message to tags
-- (void)pushMessage:(NSString *)message toTags:(NSString *)tagsString {
-    NSDictionary *userInfo = nil;
-    
-    // If background, only make a noise (sound key), if foreground, show an alert too
-    // Note: background pushes must have either the alert key or sound key (even if keys are "") or they will not be processed
-    // Additional payloads can be strings, arrays or dictionaries, but entire push message must fit in 256 bytes to be delivered
-    if (self.backgroundSwitch.on) {
-        userInfo = @{ @"sound":@"default", @"payload": @{ @"text":self.payloadTextField.text }, @"content-available":@1 };
-    } else {
-        userInfo = @{ @"alert":message, @"sound":@"default", @"payload": @{ @"text":self.payloadTextField.text } };
-    }
+- (void)pushMessageToTags:(NSString *)tagsString {
+    NSDictionary *userInfo = [self buildUserInfo];
+    NSString *pushType = self.backgroundSwitch.on ? @"Background" : @"Foreground";
     
     // Turn the tags string into an array
-    NSString *tagsWithoutWhitespace = [tagsString stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSArray *tagsArray = [tagsWithoutWhitespace componentsSeparatedByString:@","];
+    NSArray *tagsArray = [tagsString componentsSeparatedByString:@","];
     
     // Send the push
     [[CCHPush sharedInstance] sendNotificationToTags:tagsArray userInfo:userInfo completionHandler:^(NSError *error) {
         
         if (!error) {
-            NSString *alertMessage = [NSString stringWithFormat:@"Push sent successfully to tags: %@", tagsWithoutWhitespace];
+            NSString *alertMessage = [NSString stringWithFormat:@"%@ push sent successfully to tags: %@", pushType, tagsString];
             [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:alertMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
-            NSLog(@"NM: Push successfully sent to tags: %@", tagsWithoutWhitespace);
+            NSLog(@"NM: %@ push successfully sent to tags: %@", pushType, tagsString);
         } else {
-            NSString *alertMessage = [NSString stringWithFormat:@"Push failed to send to tags: %@", tagsWithoutWhitespace];
+            NSString *alertMessage = [NSString stringWithFormat:@"%@ Push failed to send to tags: %@", pushType, tagsString];
             [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:alertMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
-            NSLog(@"NM: Push failed to send to tags '%@' with error: %@", tagsWithoutWhitespace, error);
+            NSLog(@"NM: %@ push failed to send to tags '%@' with error: %@", pushType, tagsString, error);
         }
     }];
 }
@@ -158,7 +154,7 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
             NSUUID *deviceID = [[NSUUID alloc] initWithUUIDString:self.devicesTextField.text];
             
             if (deviceID) {
-                [self pushMessage:self.messageTextField.text toDeviceID:deviceID.UUIDString];
+                [self pushMessageToDeviceID:deviceID.UUIDString];
             } else {
                 [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:@"Device id is not a valid" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
             }
@@ -167,13 +163,13 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
         }
         case NMPushTypeAlias:
         {
-            [self pushMessage:self.messageTextField.text toAliases:self.devicesTextField.text];
+            [self pushMessageToAliases:self.devicesTextField.text];
             
             break;
         }
         case NMPushTypeTag:
         {
-            [self pushMessage:self.messageTextField.text toTags:self.devicesTextField.text];
+            [self pushMessageToTags:self.devicesTextField.text];
             
             break;
         }
