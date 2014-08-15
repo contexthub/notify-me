@@ -27,6 +27,7 @@
     
     self.dateFormatter = [[NSDateFormatter alloc] init];
     [self.dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    [self.dateFormatter setTimeStyle:NSDateFormatterLongStyle];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
