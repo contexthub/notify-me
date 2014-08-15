@@ -60,6 +60,7 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
     
     // If background, only make a noise (sound key), if foreground, show an alert too
     // Note: background pushes must have either the alert key or sound key (even if sound key is "") or it will not be processed
+    // Additional payloads can be strings, arrays or dictionaries, but entire push message must fit in 256 bytes to be delivered
     if (self.backgroundSwitch.on) {
         userInfo = @{ @"sound":@"default", @"payload":self.payloadTextField.text, @"content-available":@1 };
     } else {
@@ -87,6 +88,7 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
     
     // If background, only make a noise (sound key), if foreground, show an alert too
     // Note: background pushes must have either the alert key or sound key (even if keys are "") or they will not be processed
+    // Additional payloads can be strings, arrays or dictionaries, but entire push message must fit in 256 bytes to be delivered
     if (self.backgroundSwitch.on) {
         userInfo = @{ @"sound":@"default", @"payload":self.payloadTextField.text, @"content-available":@1 };
     } else {
@@ -118,6 +120,7 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
     
     // If background, only make a noise (sound key), if foreground, show an alert too
     // Note: background pushes must have either the alert key or sound key (even if keys are "") or they will not be processed
+    // Additional payloads can be strings, arrays or dictionaries, but entire push message must fit in 256 bytes to be delivered
     if (self.backgroundSwitch.on) {
         userInfo = @{ @"sound":@"default", @"payload":self.payloadTextField.text, @"content-available":@1 };
     } else {

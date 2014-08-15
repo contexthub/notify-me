@@ -61,10 +61,11 @@
     NMReceiveTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NMReceiveTableViewCellIdentifier" forIndexPath:indexPath];
     NMPushNotification *notification = [NMPushNotificationStore sharedInstance].notifications[indexPath.row];
     
-    cell.alertLabel.text = [NSString stringWithFormat:@"Alert: %@", notification.alert];
-    
+    NSString *alertText = notification.alert ? notification.alert : @"none";
     NSString *payloadText = notification.payload ? @"Yes" : @"No";
     NSString *backgroundText = notification.background ? @"Yes" : @"No";
+    
+    cell.alertLabel.text = [NSString stringWithFormat:@"Alert: %@", alertText];
     cell.payloadLabel.text = [NSString stringWithFormat:@"Custom payload: %@", payloadText];
     cell.backgroundLabel.text = [NSString stringWithFormat:@"Background: %@", backgroundText];
     cell.timeStampLabel.text = [self.dateFormatter stringFromDate:notification.timeReceivedDate];
