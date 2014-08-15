@@ -63,8 +63,10 @@
     
     cell.alertLabel.text = [NSString stringWithFormat:@"Alert: %@", notification.alert];
     
-    NSString *customPayloadText = notification.customPayload ? @"Yes" : @"No";
-    cell.customPayloadLabel.text = [NSString stringWithFormat:@"Custom payload: %@", customPayloadText];
+    NSString *payloadText = notification.payload ? @"Yes" : @"No";
+    NSString *backgroundText = notification.background ? @"Yes" : @"No";
+    cell.payloadLabel.text = [NSString stringWithFormat:@"Custom payload: %@", payloadText];
+    cell.backgroundLabel.text = [NSString stringWithFormat:@"Background: %@", backgroundText];
     cell.timeStampLabel.text = [self.dateFormatter stringFromDate:notification.timeReceivedDate];
     
     return cell;
