@@ -12,6 +12,9 @@
 #import "NMPushNotificationStore.h"
 
 #import "NMReceiveTableViewCell.h"
+
+#import "NMReceiveDetailTableViewController.h"
+
 #import "NMConstants.h"
 
 @interface NMReceiveTableViewController ()
@@ -77,6 +80,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
+    if ([segue.identifier isEqualToString:@"detailNotificationSegue"]) {
+        NMReceiveDetailTableViewController *detailVC = (NMReceiveDetailTableViewController *)segue.destinationViewController;
+        NSUInteger selectedIndex = [self.tableView indexPathForSelectedRow].row;
+        detailVC.notification = [NMPushNotificationStore sharedInstance].notifications[selectedIndex];
+    }
 }
 
 @end

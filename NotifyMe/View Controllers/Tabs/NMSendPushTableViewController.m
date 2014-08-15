@@ -62,9 +62,9 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
     // Note: background pushes must have either the alert key or sound key (even if sound key is "") or it will not be processed
     // Additional payloads can be strings, arrays or dictionaries, but entire push message must fit in 256 bytes to be delivered
     if (self.backgroundSwitch.on) {
-        userInfo = @{ @"sound":@"default", @"payload":self.payloadTextField.text, @"content-available":@1 };
+        userInfo = @{ @"sound":@"default", @"payload": @{ @"text":self.payloadTextField.text }, @"content-available":@1 };
     } else {
-        userInfo = @{ @"alert":message, @"sound":@"default", @"payload":self.payloadTextField.text };
+        userInfo = @{ @"alert":message, @"sound":@"default", @"payload": @{ @"text":self.payloadTextField.text } };
     }
     
     // Send the push
@@ -90,9 +90,9 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
     // Note: background pushes must have either the alert key or sound key (even if keys are "") or they will not be processed
     // Additional payloads can be strings, arrays or dictionaries, but entire push message must fit in 256 bytes to be delivered
     if (self.backgroundSwitch.on) {
-        userInfo = @{ @"sound":@"default", @"payload":self.payloadTextField.text, @"content-available":@1 };
+        userInfo = @{ @"sound":@"default", @"payload": @{ @"text":self.payloadTextField.text }, @"content-available":@1 };
     } else {
-        userInfo = @{ @"alert":message, @"sound":@"default", @"payload":self.payloadTextField.text };
+        userInfo = @{ @"alert":message, @"sound":@"default", @"payload": @{ @"text":self.payloadTextField.text } };
     }
     
     // Turn the alias string into an array
@@ -122,9 +122,9 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
     // Note: background pushes must have either the alert key or sound key (even if keys are "") or they will not be processed
     // Additional payloads can be strings, arrays or dictionaries, but entire push message must fit in 256 bytes to be delivered
     if (self.backgroundSwitch.on) {
-        userInfo = @{ @"sound":@"default", @"payload":self.payloadTextField.text, @"content-available":@1 };
+        userInfo = @{ @"sound":@"default", @"payload": @{ @"text":self.payloadTextField.text }, @"content-available":@1 };
     } else {
-        userInfo = @{ @"alert":message, @"sound":@"default", @"payload":self.payloadTextField.text };
+        userInfo = @{ @"alert":message, @"sound":@"default", @"payload": @{ @"text":self.payloadTextField.text } };
     }
     
     // Turn the tags string into an array
