@@ -11,6 +11,13 @@
 
 @interface NMSendPushTableViewController ()
 
+typedef NS_ENUM(NSUInteger, NMSendPushSection) {
+    NMSendPushSectionMessage = 0,
+    NMSendPushSectionType,
+    NMSendPushSectionDevice,
+    NMSendPushSectionPayload,
+    NMSendPushSectionBackground
+};
 
 typedef NS_ENUM(NSUInteger, NMPushType) {
     NMPushTypeDeviceID = 0,
@@ -24,6 +31,7 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
 @property (nonatomic, weak) IBOutlet UITextField *messageTextField;
 @property (nonatomic, weak) IBOutlet UITextField *devicesTextField;
 @property (nonatomic, weak) IBOutlet UITextField *payloadTextField;
+@property (nonatomic, weak) IBOutlet UISwitch *backgroundSwitch;
 
 @end
 
@@ -33,6 +41,7 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
     [super viewDidLoad];
     
     self.selectedIndex = 0;
+    self.backgroundSwitch.on = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -47,7 +56,17 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
 
 // Send a message to a device
 - (void)pushMessage:(NSString *)message toDeviceID:(NSString *)deviceID {
-    NSDictionary *userInfo = @{ @"alert":message, @"sound":@"default", @"payload":self.payloadTextField.text };
+    NSDictionary *userInfo = nil;
+    
+    // If background, only make a noise (sound key), if foreground, show an alert too
+    // Note: background pushes must have either the alert key or sound key (even if sound key is "") or it will not be processed
+    if (self.backgroundSwitch.on) {
+        userInfo = @{ @"sound":@"default", @"payload":self.payloadTextField.text, @"content-available":@1 };
+    } else {
+        userInfo = @{ @"alert":message, @"sound":@"default", @"payload":self.payloadTextField.text };
+    }
+    
+    // Send the push
     [[CCHPush sharedInstance] sendNotificationToDevices:@[deviceID] userInfo:userInfo completionHandler:^(NSError *error) {
         
         if (!error) {
@@ -63,11 +82,22 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
 }
 
 // Send a message to aliases
-- (void)pushMessage:(NSString *)message toAliases:(NSString *)aliases {
-    NSDictionary *userInfo = @{ @"alert":message, @"sound":@"default", @"payload":self.payloadTextField.text };
+- (void)pushMessage:(NSString *)message toAliases:(NSString *)aliasesString {
+    NSDictionary *userInfo = nil;
     
-    NSString *aliasesWithoutWhitespace = [aliases stringByReplacingOccurrencesOfString:@" " withString:@""];
+    // If background, only make a noise (sound key), if foreground, show an alert too
+    // Note: background pushes must have either the alert key or sound key (even if keys are "") or they will not be processed
+    if (self.backgroundSwitch.on) {
+        userInfo = @{ @"sound":@"default", @"payload":self.payloadTextField.text, @"content-available":@1 };
+    } else {
+        userInfo = @{ @"alert":message, @"sound":@"default", @"payload":self.payloadTextField.text };
+    }
+    
+    // Turn the alias string into an array
+    NSString *aliasesWithoutWhitespace = [aliasesString stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSArray *aliasesArray = [aliasesWithoutWhitespace componentsSeparatedByString:@","];
+    
+    // Send the push
     [[CCHPush sharedInstance] sendNotificationToAliases:aliasesArray userInfo:userInfo completionHandler:^(NSError *error) {
         
         if (!error) {
@@ -83,11 +113,22 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
 }
 
 // Send a message to tags
-- (void)pushMessage:(NSString *)message toTags:(NSString *)tags {
-    NSDictionary *userInfo = @{ @"alert":message, @"sound":@"default", @"payload":self.payloadTextField.text };
+- (void)pushMessage:(NSString *)message toTags:(NSString *)tagsString {
+    NSDictionary *userInfo = nil;
     
-    NSString *tagsWithoutWhitespace = [tags stringByReplacingOccurrencesOfString:@" " withString:@""];
+    // If background, only make a noise (sound key), if foreground, show an alert too
+    // Note: background pushes must have either the alert key or sound key (even if keys are "") or they will not be processed
+    if (self.backgroundSwitch.on) {
+        userInfo = @{ @"sound":@"default", @"payload":self.payloadTextField.text, @"content-available":@1 };
+    } else {
+        userInfo = @{ @"alert":message, @"sound":@"default", @"payload":self.payloadTextField.text };
+    }
+    
+    // Turn the tags string into an array
+    NSString *tagsWithoutWhitespace = [tagsString stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSArray *tagsArray = [tagsWithoutWhitespace componentsSeparatedByString:@","];
+    
+    // Send the push
     [[CCHPush sharedInstance] sendNotificationToTags:tagsArray userInfo:userInfo completionHandler:^(NSError *error) {
         
         if (!error) {
@@ -143,15 +184,15 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
     switch (section) {
-        case 0:
+        case NMSendPushSectionMessage:
             return @"Send message";
-        case 1:
+        case NMSendPushSectionType:
             return @"By type";
-        case 2:
+        case NMSendPushSectionDevice:
         {
             switch (self.selectedIndex) {
                 case NMPushTypeDeviceID:
-                    return @"To Device";
+                    return @"To Device ID";
                 case NMPushTypeAlias:
                     return @"To Aliases";
                 case NMPushTypeTag:
@@ -163,8 +204,10 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
             
             break;
         }
-        case 3:
+        case NMSendPushSectionPayload:
             return @"With custom payload";
+        case NMSendPushSectionBackground:
+            return @"And Visibility";
         default:
             return @"";
             break;
@@ -174,12 +217,13 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     switch (indexPath.section) {
-        case 0:
+        case NMSendPushSectionMessage:
             [self.messageTextField becomeFirstResponder];
             
             break;
-        case 1:
+        case NMSendPushSectionType:
         {
+            // Loop through every cell in this section and mark the accessory as none (see storyboard IBOutletCollection)
             for (UITableViewCell *currCell in self.cells)
             {
                 currCell.accessoryType = UITableViewCellAccessoryNone;
@@ -187,6 +231,11 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
             
             self.selectedIndex = indexPath.row;
             
+            // Selected row has checkmark
+            UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+            selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+            
+            // Update placeholder text
             switch (self.selectedIndex) {
                 case NMPushTypeDeviceID:
                     self.devicesTextField.placeholder = @"Device id";
@@ -206,17 +255,15 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
                     break;
             }
             
-            UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-            selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
-            
+            // Reload table (triggers updating section name)
             [self.tableView reloadData];
             break;
         }
-        case 2:
+        case NMSendPushSectionDevice:
             [self.devicesTextField becomeFirstResponder];
             
             break;
-        case 3:
+        case NMSendPushSectionPayload:
             [self.payloadTextField becomeFirstResponder];
             
             break;

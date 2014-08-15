@@ -13,6 +13,12 @@
 
 @interface NMDeviceTableViewController ()
 
+typedef NS_ENUM(NSUInteger, NMDeviceSection) {
+    NMDeviceSectionAlias = 0,
+    NMDeviceSectionTags,
+    NMDeviceSectionDevice
+};
+
 @property (nonatomic, strong) NSArray *tags;
 
 @end
@@ -34,12 +40,17 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     switch (section) {
-        case 0:
-        case 1:
+        case NMDeviceSectionAlias:
+            
             return 1;
-        case 2:
+        case NMDeviceSectionTags:
+            
             return self.tags.count;
+        case NMDeviceSectionDevice:
+            
+            return 1;
         default:
+            
             return 0;
     }
 }
@@ -47,42 +58,49 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
     switch (section) {
-        case 0:
-            return @"Device ID";
-            break;
-        case 1:
+        case NMDeviceSectionAlias:
+            
             return @"Alias";
-            break;
-        case 2:
+        case NMDeviceSectionTags:
+            
             return @"Tag(s)";
-            break;
+        case NMDeviceSectionDevice:
+            
+            return @"Device ID";
         default:
+            
             return @"";
-            break;
     }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    
+    if (section == NMDeviceSectionDevice) {
+        return @"Device id is immutable after it has been assigned from ContextHub";
+    }
+    
+    return @"";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NMDeviceTableViewCellIdentifier" forIndexPath:indexPath];
     
     switch (indexPath.section) {
-        case 0:
-        {
-            cell.textLabel.text = [ContextHub deviceId];
-            break;
-        }
-            
-        case 1:
-        {
+        case NMDeviceSectionAlias:
             cell.textLabel.text = [[UIDevice currentDevice] name];
+            
             break;
-        }
-        case 2:
-        {
+        case NMDeviceSectionTags:
             cell.textLabel.text = self.tags[indexPath.row];
+            
+            
             break;
-        }
+        case NMDeviceSectionDevice:
+            cell.textLabel.text = [ContextHub deviceId];
+            
+            break;
         default:
+            
             break;
     }
     
@@ -95,18 +113,18 @@
     NSString *stringCopied = @"";
     
     switch (indexPath.section) {
-        case 0:
+        case NMDeviceSectionAlias:
+            stringCopied = [[UIDevice currentDevice] name];
+            
+            break;
+        case NMDeviceSectionTags:
+            stringCopied = self.tags[indexPath.row];
+            
+            break;
+        case NMDeviceSectionDevice:
             stringCopied = [ContextHub deviceId];
             
             break;
-        case 1:
-            stringCopied = [[UIDevice currentDevice] name];
-            break;
-        case 2:
-        {
-            stringCopied = self.tags[indexPath.row];
-            break;
-        }
         default:
             break;
     }

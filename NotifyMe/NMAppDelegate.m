@@ -29,6 +29,9 @@
     // Register for remote notifications
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound ];
     
+    // Clear badge
+    application.applicationIconBadgeNumber = 0;
+    
     return YES;
 }
 							
@@ -77,8 +80,10 @@
         NMPushNotification *newNotification = [[NMPushNotification alloc] initWithAlert:message customPayload:customPayload background:background];
         [[NMPushNotificationStore sharedInstance] addNotification:newNotification];
         
-        // Pop an alert about our message
-        [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+        // Pop an alert about our message only if our app is in the foreground
+        if (application.applicationState == UIApplicationStateActive) {
+            [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+        }
         
         // Post a notification that there's a new push notification so our receive table view can reload data
         [[NSNotificationCenter defaultCenter] postNotificationName:NMNewPushNotification object:nil];
