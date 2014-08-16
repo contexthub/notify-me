@@ -14,6 +14,7 @@
 typedef NS_ENUM(NSUInteger, NMTabBarIndex) {
     NMTabBarSendIndex = 0,
     NMTabBarReceiveIndex,
+    NMTabBarDeviceIndex,
     NMTabBarAboutIndex
 };
 
@@ -42,6 +43,11 @@ typedef NS_ENUM(NSUInteger, NMTabBarIndex) {
         case NMTabBarReceiveIndex:
             viewController.tabBarItem.image = [UIImage imageNamed:@"ReceiveTabBarIcon"];
             viewController.tabBarItem.selectedImage = [UIImage imageNamed:@"ReceiveSelectedTabBarIcon"];
+            
+            break;
+        case NMTabBarDeviceIndex:
+            viewController.tabBarItem.image = [UIImage imageNamed:@"DeviceTabBarIcon"];
+            viewController.tabBarItem.selectedImage = [UIImage imageNamed:@"DeviceSelectedTabBarIcon"];
             
             break;
         case NMTabBarAboutIndex:

@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NMPushNotification : NSObject
+@interface NMPushNotification : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *alert;
-@property (nonatomic, copy) NSDictionary *customPayload;
-@property (nonatomic) BOOL backgroundPushNotification;
+@property (nonatomic, copy) NSDictionary *payload;
+@property (nonatomic) BOOL background;
 @property (nonatomic, strong) NSDate *timeReceivedDate;
 
 - (instancetype)initWithAlert:(NSString *)alert customPayload:(NSDictionary *)customPayload background:(BOOL)background;

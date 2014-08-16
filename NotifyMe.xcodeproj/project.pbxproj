@@ -19,6 +19,9 @@
 		1F132297199A908F00A71761 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F132276199A908F00A71761 /* UIKit.framework */; };
 		1F13229F199A908F00A71761 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F13229D199A908F00A71761 /* InfoPlist.strings */; };
 		1F1322A1199A908F00A71761 /* NotifyMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1322A0199A908F00A71761 /* NotifyMeTests.m */; };
+		1F20A9CC199E5B0300238890 /* NMDeviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F20A9CB199E5B0300238890 /* NMDeviceTableViewController.m */; };
+		1F20A9D2199E82F400238890 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F20A9D1199E82F400238890 /* Main_iPhone.storyboard */; };
+		1F20A9D5199E87F500238890 /* NMReceiveDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F20A9D4199E87F500238890 /* NMReceiveDetailTableViewController.m */; };
 		1F386D6D199BBE0F000947D6 /* NMSendPushTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F386D6C199BBE0F000947D6 /* NMSendPushTableViewController.m */; };
 		1F386D70199BBE23000947D6 /* NMReceiveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F386D6F199BBE23000947D6 /* NMReceiveTableViewController.m */; };
 		1F386D73199BBFB8000947D6 /* NMPushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F386D72199BBFB8000947D6 /* NMPushNotification.m */; };
@@ -28,7 +31,6 @@
 		1F4BB193199A950700C521A7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB192199A950700C521A7 /* LICENSE */; };
 		1F4BB19E199AA49300C521A7 /* NMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB19D199AA49300C521A7 /* NMTabBarController.m */; };
 		1F4BB1A1199AA56800C521A7 /* NMAboutTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB1A0199AA56800C521A7 /* NMAboutTableViewController.m */; };
-		1F4BB1A7199ADC1700C521A7 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB1A6199ADC1700C521A7 /* Main_iPhone.storyboard */; };
 		1FF32812199C3E3500F4BE0B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32811199C3E3500F4BE0B /* CoreLocation.framework */; };
 		1FF32814199C3E3D00F4BE0B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32813199C3E3D00F4BE0B /* CoreMotion.framework */; };
 		1FF32816199C3E4400F4BE0B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32815199C3E4400F4BE0B /* MobileCoreServices.framework */; };
@@ -63,6 +65,11 @@
 		1F13229C199A908F00A71761 /* NotifyMeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NotifyMeTests-Info.plist"; sourceTree = "<group>"; };
 		1F13229E199A908F00A71761 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F1322A0199A908F00A71761 /* NotifyMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotifyMeTests.m; sourceTree = "<group>"; };
+		1F20A9CA199E5B0300238890 /* NMDeviceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMDeviceTableViewController.h; path = "View Controllers/Tabs/NMDeviceTableViewController.h"; sourceTree = "<group>"; };
+		1F20A9CB199E5B0300238890 /* NMDeviceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMDeviceTableViewController.m; path = "View Controllers/Tabs/NMDeviceTableViewController.m"; sourceTree = "<group>"; };
+		1F20A9D1199E82F400238890 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		1F20A9D3199E87F500238890 /* NMReceiveDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMReceiveDetailTableViewController.h; path = "View Controllers/Tabs/Receive/NMReceiveDetailTableViewController.h"; sourceTree = "<group>"; };
+		1F20A9D4199E87F500238890 /* NMReceiveDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMReceiveDetailTableViewController.m; path = "View Controllers/Tabs/Receive/NMReceiveDetailTableViewController.m"; sourceTree = "<group>"; };
 		1F386D6B199BBE0F000947D6 /* NMSendPushTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMSendPushTableViewController.h; path = "View Controllers/Tabs/NMSendPushTableViewController.h"; sourceTree = "<group>"; };
 		1F386D6C199BBE0F000947D6 /* NMSendPushTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMSendPushTableViewController.m; path = "View Controllers/Tabs/NMSendPushTableViewController.m"; sourceTree = "<group>"; };
 		1F386D6E199BBE23000947D6 /* NMReceiveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMReceiveTableViewController.h; path = "View Controllers/Tabs/NMReceiveTableViewController.h"; sourceTree = "<group>"; };
@@ -77,7 +84,6 @@
 		1F4BB19D199AA49300C521A7 /* NMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMTabBarController.m; path = "View Controllers/NMTabBarController.m"; sourceTree = "<group>"; };
 		1F4BB19F199AA56800C521A7 /* NMAboutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMAboutTableViewController.h; path = "View Controllers/Tabs/NMAboutTableViewController.h"; sourceTree = "<group>"; };
 		1F4BB1A0199AA56800C521A7 /* NMAboutTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMAboutTableViewController.m; path = "View Controllers/Tabs/NMAboutTableViewController.m"; sourceTree = "<group>"; };
-		1F4BB1A6199ADC1700C521A7 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone.storyboard; path = ../Main_iPhone.storyboard; sourceTree = "<group>"; };
 		1FF3280D199C3AC000F4BE0B /* NMConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMConstants.h; sourceTree = "<group>"; };
 		1FF32811199C3E3500F4BE0B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1FF32813199C3E3D00F4BE0B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -163,7 +169,7 @@
 				1F132282199A908F00A71761 /* NMAppDelegate.m */,
 				1FF3280D199C3AC000F4BE0B /* NMConstants.h */,
 				1F13228D199A908F00A71761 /* Images.xcassets */,
-				1F4BB1A6199ADC1700C521A7 /* Main_iPhone.storyboard */,
+				1F20A9D1199E82F400238890 /* Main_iPhone.storyboard */,
 				1F132279199A908F00A71761 /* Supporting Files */,
 			);
 			path = NotifyMe;
@@ -196,6 +202,15 @@
 				1F13229D199A908F00A71761 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F20A9D0199E82AC00238890 /* Receive */ = {
+			isa = PBXGroup;
+			children = (
+				1F20A9D3199E87F500238890 /* NMReceiveDetailTableViewController.h */,
+				1F20A9D4199E87F500238890 /* NMReceiveDetailTableViewController.m */,
+			);
+			name = Receive;
 			sourceTree = "<group>";
 		};
 		1F4BB194199A951D00C521A7 /* Models */ = {
@@ -231,10 +246,13 @@
 		1F4BB19B199AA45500C521A7 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				1F20A9D0199E82AC00238890 /* Receive */,
 				1F386D6B199BBE0F000947D6 /* NMSendPushTableViewController.h */,
 				1F386D6C199BBE0F000947D6 /* NMSendPushTableViewController.m */,
 				1F386D6E199BBE23000947D6 /* NMReceiveTableViewController.h */,
 				1F386D6F199BBE23000947D6 /* NMReceiveTableViewController.m */,
+				1F20A9CA199E5B0300238890 /* NMDeviceTableViewController.h */,
+				1F20A9CB199E5B0300238890 /* NMDeviceTableViewController.m */,
 				1F4BB19F199AA56800C521A7 /* NMAboutTableViewController.h */,
 				1F4BB1A0199AA56800C521A7 /* NMAboutTableViewController.m */,
 			);
@@ -328,8 +346,8 @@
 			files = (
 				1F4BB193199A950700C521A7 /* LICENSE in Resources */,
 				1F13228E199A908F00A71761 /* Images.xcassets in Resources */,
+				1F20A9D2199E82F400238890 /* Main_iPhone.storyboard in Resources */,
 				1F4BB18F199A94FC00C521A7 /* README.md in Resources */,
-				1F4BB1A7199ADC1700C521A7 /* Main_iPhone.storyboard in Resources */,
 				1F13227D199A908F00A71761 /* InfoPlist.strings in Resources */,
 				1F4BB191199A950200C521A7 /* release_notes.md in Resources */,
 			);
@@ -374,7 +392,9 @@
 				1F4BB19E199AA49300C521A7 /* NMTabBarController.m in Sources */,
 				1F13227F199A908F00A71761 /* main.m in Sources */,
 				1F386D73199BBFB8000947D6 /* NMPushNotification.m in Sources */,
+				1F20A9D5199E87F500238890 /* NMReceiveDetailTableViewController.m in Sources */,
 				1F132283199A908F00A71761 /* NMAppDelegate.m in Sources */,
+				1F20A9CC199E5B0300238890 /* NMDeviceTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -34,7 +34,6 @@ typedef NS_ENUM(NSUInteger, NMAboutTableSection) {
 
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
     UITableViewHeaderFooterView *footer = (UITableViewHeaderFooterView *)view;
-    //[footer.textLabel setTextColor:[UIColor whiteColor]];
     
     switch (section) {
         case NMAboutTableVersionSection:
