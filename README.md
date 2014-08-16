@@ -50,7 +50,7 @@ and end like this
 1. This sample app will log push notification responses from Apple Push Notification Services so you can get an idea of the structure of the item you receive. Use shortcut `Shift-⌘-Y` if your console is not already visible.
 2. A simple foreground push notification looks like this:
 ```
-Push received: {
+{
     aps =     {
         alert = message;
         sound = default;
@@ -59,7 +59,7 @@ Push received: {
 ```
 3. A push notification with a custom payload looks like this:
 ```
-Push received: {
+{
     aps =     {
         alert = push;
         sound = default;
@@ -71,7 +71,7 @@ Push received: {
 ```
 4. A background push notification that will trigger your app to wake up will look like this:
 ```
-Push received: {
+{
     aps =     {
         "content-available" = 1;
         sound = default;
