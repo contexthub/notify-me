@@ -3,16 +3,17 @@
 The Notify Me sample app that introduces you to the push features of the ContextHub iOS SDK.
 
 ### Table of Contents
-**[Purpose](#purpose)**
-**[ContextHub](#contexthub)**
-**[Background](#background)**
-**[Getting Started](#getting-started)**
-**[Setup](#setup)**
-**[Running the Sample App](running-the-sample-app)**
-**[Xcode Console](xcode-console)**
-**[Sample Code](sample-code)**
-**[Usage](usage)**
-**[Troubleshooting](troubleshooting)**
+
+1. **[Purpose](#purpose)**
+2. **[ContextHub](#contexthub)**
+3. **[Background](#background)**
+4. **[Getting Started](#getting-started)**
+5. **[Setup](#setup)**
+6. **[Running the Sample App](#running-the-sample-app)**
+7. **[Xcode Console](#xcode-console)**
+8. **[Sample Code](#sample-code)**
+9. **[Usage](#usage)**
+10. **[Troubleshooting](#troubleshooting)**
 
 ## Purpose
 
