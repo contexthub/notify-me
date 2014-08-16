@@ -5,7 +5,7 @@ The Notify Me sample app that introduces you to the push features of the Context
 ### Table of Contents
 
 1. **[Purpose](#purpose)**
-2. **[ContextHub](#contexthub)**
+2. **[ContextHub Use Case](#contexthub-use-case)**
 3. **[Background](#background)**
 4. **[Getting Started](#getting-started)**
 5. **[Setup](#setup)**
@@ -26,7 +26,7 @@ The Notify Me sample app that introduces you to the push features of the Context
 
 This sample application will show you how to send and receive foreground and background push notifications in ContextHub.
 
-## ContextHub
+## ContextHub Use Case
 
 In this sample application, we use ContextHub to interact with Apple Push Notification Services so we can send push notifications to devices based on their device ID, alias, or tag. ContextHub takes care of translating each of those items to a push token which APNS needs to send the message to the correct device.
 
@@ -42,8 +42,8 @@ Rather than sending push notifications to tokens which Apple gives you (which ca
 
 ## Getting Started
 
-1. Get started by either forking or cloning the Notify Me repo. Visit [GitHub Help](https://help.github.com/articles/fork-a-repo) if you need help.
-2. Go to [ContextHub](http://app.contexthub.com) and create a new DetectMe application.
+1. Get started by either forking or cloning the "contexthub/notify-me" repo. Visit [GitHub Help](https://help.github.com/articles/fork-a-repo) if you need help.
+2. Go to [ContextHub](http://app.contexthub.com) and create a new application called "NotifyMe".
 3. Find the app id associated with the application you just created. Its format looks something like this: `13e7e6b4-9f33-4e97-b11c-79ed1470fc1d`.
 4. Open up your Xcode project and put the app id into the `[ContextHub registerWithAppId:]` method call.
 5. You are now ready to setup push notifications with your device.
