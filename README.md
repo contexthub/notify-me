@@ -87,7 +87,7 @@ In addition, `NMReceiveTableViewController.m` and `NMReceiveDetailTableViewContr
 ```
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 ``` 
-    will be called eventually with background notifications regardless of whether your application is in the foreground or background or not running at all, which gives added power to your applications to respond to a notification with a fresh state the next time a user opens up your app.
+will be called eventually with background notifications regardless of whether your application is in the foreground or background or not running at all, which gives added power to your applications to respond to a notification with a fresh state the next time a user opens up your app.
 
 ## Usage
 
