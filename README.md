@@ -105,8 +105,13 @@ Below shows the basics of how the CCHPush class is used to send and receive push
     // Xcode deployed builds use the sandbox/development server
     // TestFlight/App Store builds use the production server
     // ContextHub records which environment a device is using so push works properly
+    // This must be called BEFORE [ContextHub registerWithAppId:]
     [[ContextHub sharedInstance] setDebug:TRUE];
 #endif
+
+    [ContextHub registerWithAppId:@"YOUR-APP-ID-HERE"];
+    
+    return YES;
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
