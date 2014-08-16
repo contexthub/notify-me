@@ -19,7 +19,8 @@ The Notify Me sample app that introduces you to the push features of the Context
   - **[Sending push to alias(es)](#sending-a-push-to-aliases)**
   - **[Sending push to tag(s)](#sending-a-push-to-tags)**
   - **[Receiving a push](#receiving-a-push)**
-10. **[Troubleshooting](#troubleshooting)**
+10. **[Final Words](#final-words)**
+11. **[Troubleshooting](#troubleshooting)**
 
 ## Purpose
 
@@ -277,6 +278,8 @@ NSString *tag2 = @"tag2";
     [[CCHPush sharedInstance] application:application didReceiveRemoteNotification:userInfo completionHandler:fetchCompletionHandler];
 }
 ```
+
+## Final Words
 
 That's it! Hopefully this sample application showed you how to work with push notifications in ContextHub to send and receive notifications to devices. With push setup, you no longer need to call `[[CCHSensorPipeline sharedInstance] synchronize]` so the sensor pipeline has the latest data to drive events. You can also move onto the subscription sample "watch-dog" which walks through how push let's your app be aware of create, update, and delete changes to elements (beacons, geofences) as well as vault items in near real-time.
 
