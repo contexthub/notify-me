@@ -45,8 +45,21 @@ and end like this
 5. Paste the text you got from the certificate.pem into the appropriate certificate box (either sandbox/development or production). You can verify that you have created the correct keys and certs by the presence of the phrase `Apple Development IOS Push Services` for sandbox and `Apple Production IOS Push Services` for production.
 6. Build and run your app on your device. You should get a popup notification asking for permission to receive push notifications if everything is working properly. If you have any issues, see the troubleshooting below.
 
+## Running the sample app
+
+1. Run the app on your device, you should get a popup asking to receive remote notifications at least once to know that registering for push was successfull.
+2. On the send tab, tap on the "message" field and type in a short message.
+3. By default, the app will send a message to your device id in the foreground. Try it now, tap send in the upper right hand corner, and you should receive an alert view when your message is received.
+4. On the receive tab, you should see your notification appear and whether it was a foreground/background push, if it had a custom payload, and what time it was receieved. Tap the row to see more detail.
+4. Now tap the device tab to see what your current alias and tags are. Tap on your alias (which in this app is your device name) to automatically copy it to your clipboard.
+5. Go back to the send tab and replace your device id with your alias. Send another message.
+6. You should recent another message when the alert is received from APNS.
+7. Lastly, try sending a message to a tag by going to the device tab, tapping a tag to copy it to your pasteboard, then selecting "tags" in the type section and pasting your tag into the next section. Tap the switch button on the bottom to instead send a background notification instead of a foreground notification. Now tap send.
+8. You shouldn't see a message appear, but when you go to the receive tap, a new message should be present. If you repeat step 7 again, but immediately press the home button after sending your message, you should hear your device alert or buzz stating you got a new message.
+9. Background messaging can better tested if you send messages by running the app in the simulator and sending pushes to your device while the app on your device isn't running. You will see the badge count increase and your device will alert/buzz, which lets you know a message was processed.
 
 ## Xcode Console
+
 1. This sample app will log push notification responses from Apple Push Notification Services so you can get an idea of the structure of the item you receive. Use shortcut `Shift-⌘-Y` if your console is not already visible.
 2. A simple foreground push notification looks like this:
 ```
@@ -57,7 +70,7 @@ and end like this
     };
 }
 ```
-3. A push notification with a custom payload looks like this:
+A push notification with a custom payload looks like this:
 ```
 {
     aps =     {
@@ -69,7 +82,7 @@ and end like this
     };
 }
 ```
-4. A background push notification that will trigger your app to wake up will look like this:
+A background push notification that will trigger your app to wake up will look like this:
 ```
 {
     aps =     {
@@ -211,7 +224,6 @@ NSString *tag2 = @"tag2";
 }];
 ```
 
-
 ##### Receiving a push
 
 ```objc
@@ -254,8 +266,9 @@ Things to check if you are not receiving push notifications (you need to have go
 
 1. Make sure that the sandbox/production certificate and private keys are in the correct places
 2. Check and make sure the device has a push token. If not, delete the device and try again (the record will be regenerated).
-3. Check devices in the portal, find your device, and make sure that the push environment is "sandbox" for Xcode deployments and "production" for TestFlight/AppStore deployments. If it is not, see #4 for fix.
-4. Make sure that you have this piece of code called *before* you call [ContextHub registerAppId:]:
+3. Check devices in the portal, find your device, and make sure that the push environment is "sandbox" for Xcode deployments and "production" for TestFlight/AppStore deployments. If it is not, see #5 for fix.
+4. Note that apps which you have explicitly killed by swiping up from the multi-tasking menu will *never* get foreground or background notifications. This is by Apple's design due to their belief that a killed app should get no notifications until a user again explicitly interacts with the app by opening it up again.
+5. Make sure that you have this piece of code called *before* you call [ContextHub registerAppId:]:
 ```objc
 #ifdef DEBUG
     [[ContextHub sharedInstance] setDebug:TRUE];
