@@ -67,13 +67,13 @@ and end like this
 ## Running the sample app
 
 1. Run the app on your device, you should get a popup asking to receive remote notifications at least once to know that registering for push was successfull.
-2. On the send tab, tap on the "message" field and type in a short message.
-3. By default, the app will send a message to your device id in the foreground. Try it now, tap send in the upper right hand corner, and you should receive an alert view when your message is received.
-4. On the receive tab, you should see your notification appear and whether it was a foreground/background push, if it had a custom payload, and what time it was receieved. Tap the row to see more detail.
-4. Now tap the device tab to see what your current alias and tags are. Tap on your alias (which in this app is your device name) to automatically copy it to your clipboard.
-5. Go back to the send tab and replace your device id with your alias. Send another message.
+2. On the `Send` tab, tap on the "message" field and type in a short message.
+3. By default, the app will send a message to your device id in the foreground. Try it now, tap `Push` in the upper right hand corner, and you should receive an alert view when your message is received.
+4. On the `Receive` tab, you should see your notification appear and whether it was a foreground/background push, if it had a custom payload, and what time it was receieved. Tap the row to see more detail.
+4. Now tap the `Device` tab to see what your current alias and tags are. Tap on your alias (which in this app is your device name) to automatically copy it to your clipboard.
+5. Go back to the `Send` tab and replace your device id with your alias. Send another message.
 6. You should recent another message when the alert is received from APNS.
-7. Lastly, try sending a message to a tag by going to the device tab, tapping a tag to copy it to your pasteboard, then selecting "tags" in the type section and pasting your tag into the next section. Tap the switch button on the bottom to instead send a background notification instead of a foreground notification. Now tap send.
+7. Lastly, try sending a message to a tag by going to the `Device` tab, tapping a tag to copy it to your pasteboard, then selecting "tags" in the type section and pasting your tag into the next section. Tap the switch button on the bottom to instead send a background notification instead of a foreground notification. Now tap `Push`.
 8. You shouldn't see a message appear, but when you go to the receive tap, a new message should be present. If you repeat step 7 again, but immediately press the home button after sending your message, you should hear your device alert or buzz stating you got a new message.
 9. Background messaging can better tested if you send messages by running the app in the simulator and sending pushes to your device while the app on your device isn't running. You will see the badge count increase and your device will alert/buzz, which lets you know a message was processed.
 
