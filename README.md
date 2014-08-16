@@ -13,6 +13,12 @@ The Notify Me sample app that introduces you to the push features of the Context
 7. **[Xcode Console](#xcode-console)**
 8. **[Sample Code](#sample-code)**
 9. **[Usage](#usage)**
+  - **[Registering for push](#registering-for-push)**
+  - **[Setting up a push dictionary](#setting-up-a-push-dictionary)**
+  - **[Sending push to device(s)](#sending-a-push-to-devices)**
+  - **[Sending push to alias(es)](#sending-a-push-to-aliases)**
+  - **[Sending push to tag(s)](#sending-a-push-to-tags)**
+  - **[Receiving a push](#receiving-a-push)**
 10. **[Troubleshooting](#troubleshooting)**
 
 ## Purpose
@@ -218,7 +224,7 @@ NSString *alias2 = @"Jeff's iPhone 5";
 }];
 ```
 
-##### Sending a push to tags(s)
+##### Sending a push to tag(s)
 
 ```objc
 // Send a push notification to all devices with tags "tag1" and "tag2"
