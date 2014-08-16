@@ -19,7 +19,10 @@
 {
     // Register with ContextHub
 #ifdef DEBUG
-    // This tells ContextHub that you are running a debug build.
+    // The debug flag is automatically set by the compiler, indicating which push gateway server your device will use
+    // Xcode deployed builds use the sandbox/development server
+    // TestFlight/App Store builds use the production server
+    // ContextHub records which environment a device is using so push works properly
     [[ContextHub sharedInstance] setDebug:TRUE];
 #endif
     
