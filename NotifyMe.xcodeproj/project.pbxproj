@@ -13,18 +13,29 @@
 		1F13227D199A908F00A71761 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F13227B199A908F00A71761 /* InfoPlist.strings */; };
 		1F13227F199A908F00A71761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F13227E199A908F00A71761 /* main.m */; };
 		1F132283199A908F00A71761 /* NMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F132282199A908F00A71761 /* NMAppDelegate.m */; };
-		1F13228C199A908F00A71761 /* NMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F13228B199A908F00A71761 /* NMViewController.m */; };
 		1F13228E199A908F00A71761 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F13228D199A908F00A71761 /* Images.xcassets */; };
 		1F132295199A908F00A71761 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F132294199A908F00A71761 /* XCTest.framework */; };
 		1F132296199A908F00A71761 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F132272199A908F00A71761 /* Foundation.framework */; };
 		1F132297199A908F00A71761 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F132276199A908F00A71761 /* UIKit.framework */; };
 		1F13229F199A908F00A71761 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F13229D199A908F00A71761 /* InfoPlist.strings */; };
 		1F1322A1199A908F00A71761 /* NotifyMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1322A0199A908F00A71761 /* NotifyMeTests.m */; };
+		1F20A9CC199E5B0300238890 /* NMDeviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F20A9CB199E5B0300238890 /* NMDeviceTableViewController.m */; };
+		1F20A9D2199E82F400238890 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F20A9D1199E82F400238890 /* Main_iPhone.storyboard */; };
+		1F20A9D5199E87F500238890 /* NMReceiveDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F20A9D4199E87F500238890 /* NMReceiveDetailTableViewController.m */; };
+		1F386D6D199BBE0F000947D6 /* NMSendPushTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F386D6C199BBE0F000947D6 /* NMSendPushTableViewController.m */; };
+		1F386D70199BBE23000947D6 /* NMReceiveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F386D6F199BBE23000947D6 /* NMReceiveTableViewController.m */; };
+		1F386D73199BBFB8000947D6 /* NMPushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F386D72199BBFB8000947D6 /* NMPushNotification.m */; };
 		1F4BB18D199A94EE00C521A7 /* ContextHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4BB18C199A94EE00C521A7 /* ContextHub.framework */; };
 		1F4BB18F199A94FC00C521A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB18E199A94FC00C521A7 /* README.md */; };
 		1F4BB191199A950200C521A7 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB190199A950200C521A7 /* release_notes.md */; };
 		1F4BB193199A950700C521A7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB192199A950700C521A7 /* LICENSE */; };
-		1F4BB19A199AA07800C521A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB198199AA07800C521A7 /* Main.storyboard */; };
+		1F4BB19E199AA49300C521A7 /* NMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB19D199AA49300C521A7 /* NMTabBarController.m */; };
+		1F4BB1A1199AA56800C521A7 /* NMAboutTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB1A0199AA56800C521A7 /* NMAboutTableViewController.m */; };
+		1FF32812199C3E3500F4BE0B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32811199C3E3500F4BE0B /* CoreLocation.framework */; };
+		1FF32814199C3E3D00F4BE0B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32813199C3E3D00F4BE0B /* CoreMotion.framework */; };
+		1FF32816199C3E4400F4BE0B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32815199C3E4400F4BE0B /* MobileCoreServices.framework */; };
+		1FF32819199D562D00F4BE0B /* NMPushNotificationStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF32818199D562D00F4BE0B /* NMPushNotificationStore.m */; };
+		1FF3281C199D5A5B00F4BE0B /* NMReceiveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3281B199D5A5B00F4BE0B /* NMReceiveTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,19 +59,39 @@
 		1F132280199A908F00A71761 /* NotifyMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NotifyMe-Prefix.pch"; sourceTree = "<group>"; };
 		1F132281199A908F00A71761 /* NMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMAppDelegate.h; sourceTree = "<group>"; };
 		1F132282199A908F00A71761 /* NMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMAppDelegate.m; sourceTree = "<group>"; };
-		1F13228A199A908F00A71761 /* NMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMViewController.h; sourceTree = "<group>"; };
-		1F13228B199A908F00A71761 /* NMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMViewController.m; sourceTree = "<group>"; };
 		1F13228D199A908F00A71761 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1F132293199A908F00A71761 /* NotifyMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotifyMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F132294199A908F00A71761 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F13229C199A908F00A71761 /* NotifyMeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NotifyMeTests-Info.plist"; sourceTree = "<group>"; };
 		1F13229E199A908F00A71761 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F1322A0199A908F00A71761 /* NotifyMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotifyMeTests.m; sourceTree = "<group>"; };
+		1F20A9CA199E5B0300238890 /* NMDeviceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMDeviceTableViewController.h; path = "View Controllers/Tabs/NMDeviceTableViewController.h"; sourceTree = "<group>"; };
+		1F20A9CB199E5B0300238890 /* NMDeviceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMDeviceTableViewController.m; path = "View Controllers/Tabs/NMDeviceTableViewController.m"; sourceTree = "<group>"; };
+		1F20A9D1199E82F400238890 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		1F20A9D3199E87F500238890 /* NMReceiveDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMReceiveDetailTableViewController.h; path = "View Controllers/Tabs/Receive/NMReceiveDetailTableViewController.h"; sourceTree = "<group>"; };
+		1F20A9D4199E87F500238890 /* NMReceiveDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMReceiveDetailTableViewController.m; path = "View Controllers/Tabs/Receive/NMReceiveDetailTableViewController.m"; sourceTree = "<group>"; };
+		1F386D6B199BBE0F000947D6 /* NMSendPushTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMSendPushTableViewController.h; path = "View Controllers/Tabs/NMSendPushTableViewController.h"; sourceTree = "<group>"; };
+		1F386D6C199BBE0F000947D6 /* NMSendPushTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMSendPushTableViewController.m; path = "View Controllers/Tabs/NMSendPushTableViewController.m"; sourceTree = "<group>"; };
+		1F386D6E199BBE23000947D6 /* NMReceiveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMReceiveTableViewController.h; path = "View Controllers/Tabs/NMReceiveTableViewController.h"; sourceTree = "<group>"; };
+		1F386D6F199BBE23000947D6 /* NMReceiveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMReceiveTableViewController.m; path = "View Controllers/Tabs/NMReceiveTableViewController.m"; sourceTree = "<group>"; };
+		1F386D71199BBFB8000947D6 /* NMPushNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMPushNotification.h; path = Models/NMPushNotification.h; sourceTree = "<group>"; };
+		1F386D72199BBFB8000947D6 /* NMPushNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMPushNotification.m; path = Models/NMPushNotification.m; sourceTree = "<group>"; };
 		1F4BB18C199A94EE00C521A7 /* ContextHub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextHub.framework; sourceTree = "<group>"; };
 		1F4BB18E199A94FC00C521A7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		1F4BB190199A950200C521A7 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		1F4BB192199A950700C521A7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		1F4BB199199AA07800C521A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1F4BB19C199AA49300C521A7 /* NMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMTabBarController.h; path = "View Controllers/NMTabBarController.h"; sourceTree = "<group>"; };
+		1F4BB19D199AA49300C521A7 /* NMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMTabBarController.m; path = "View Controllers/NMTabBarController.m"; sourceTree = "<group>"; };
+		1F4BB19F199AA56800C521A7 /* NMAboutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMAboutTableViewController.h; path = "View Controllers/Tabs/NMAboutTableViewController.h"; sourceTree = "<group>"; };
+		1F4BB1A0199AA56800C521A7 /* NMAboutTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMAboutTableViewController.m; path = "View Controllers/Tabs/NMAboutTableViewController.m"; sourceTree = "<group>"; };
+		1FF3280D199C3AC000F4BE0B /* NMConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMConstants.h; sourceTree = "<group>"; };
+		1FF32811199C3E3500F4BE0B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1FF32813199C3E3D00F4BE0B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		1FF32815199C3E4400F4BE0B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		1FF32817199D562D00F4BE0B /* NMPushNotificationStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMPushNotificationStore.h; path = Models/NMPushNotificationStore.h; sourceTree = "<group>"; };
+		1FF32818199D562D00F4BE0B /* NMPushNotificationStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMPushNotificationStore.m; path = Models/NMPushNotificationStore.m; sourceTree = "<group>"; };
+		1FF3281A199D5A5B00F4BE0B /* NMReceiveTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMReceiveTableViewCell.h; path = Views/NMReceiveTableViewCell.h; sourceTree = "<group>"; };
+		1FF3281B199D5A5B00F4BE0B /* NMReceiveTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMReceiveTableViewCell.m; path = Views/NMReceiveTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +99,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FF32816199C3E4400F4BE0B /* MobileCoreServices.framework in Frameworks */,
+				1FF32814199C3E3D00F4BE0B /* CoreMotion.framework in Frameworks */,
+				1FF32812199C3E3500F4BE0B /* CoreLocation.framework in Frameworks */,
 				1F4BB18D199A94EE00C521A7 /* ContextHub.framework in Frameworks */,
 				1F132275199A908F00A71761 /* CoreGraphics.framework in Frameworks */,
 				1F132277199A908F00A71761 /* UIKit.framework in Frameworks */,
@@ -115,7 +149,10 @@
 			children = (
 				1F4BB18C199A94EE00C521A7 /* ContextHub.framework */,
 				1F132274199A908F00A71761 /* CoreGraphics.framework */,
+				1FF32811199C3E3500F4BE0B /* CoreLocation.framework */,
+				1FF32813199C3E3D00F4BE0B /* CoreMotion.framework */,
 				1F132272199A908F00A71761 /* Foundation.framework */,
+				1FF32815199C3E4400F4BE0B /* MobileCoreServices.framework */,
 				1F132276199A908F00A71761 /* UIKit.framework */,
 				1F132294199A908F00A71761 /* XCTest.framework */,
 			);
@@ -130,8 +167,9 @@
 				1F4BB196199A952800C521A7 /* View Controllers */,
 				1F132281199A908F00A71761 /* NMAppDelegate.h */,
 				1F132282199A908F00A71761 /* NMAppDelegate.m */,
+				1FF3280D199C3AC000F4BE0B /* NMConstants.h */,
 				1F13228D199A908F00A71761 /* Images.xcassets */,
-				1F4BB198199AA07800C521A7 /* Main.storyboard */,
+				1F20A9D1199E82F400238890 /* Main_iPhone.storyboard */,
 				1F132279199A908F00A71761 /* Supporting Files */,
 			);
 			path = NotifyMe;
@@ -166,9 +204,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1F20A9D0199E82AC00238890 /* Receive */ = {
+			isa = PBXGroup;
+			children = (
+				1F20A9D3199E87F500238890 /* NMReceiveDetailTableViewController.h */,
+				1F20A9D4199E87F500238890 /* NMReceiveDetailTableViewController.m */,
+			);
+			name = Receive;
+			sourceTree = "<group>";
+		};
 		1F4BB194199A951D00C521A7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1F386D71199BBFB8000947D6 /* NMPushNotification.h */,
+				1F386D72199BBFB8000947D6 /* NMPushNotification.m */,
+				1FF32817199D562D00F4BE0B /* NMPushNotificationStore.h */,
+				1FF32818199D562D00F4BE0B /* NMPushNotificationStore.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -176,6 +227,8 @@
 		1F4BB195199A952300C521A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1FF3281A199D5A5B00F4BE0B /* NMReceiveTableViewCell.h */,
+				1FF3281B199D5A5B00F4BE0B /* NMReceiveTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -183,10 +236,27 @@
 		1F4BB196199A952800C521A7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1F13228A199A908F00A71761 /* NMViewController.h */,
-				1F13228B199A908F00A71761 /* NMViewController.m */,
+				1F4BB19B199AA45500C521A7 /* Tabs */,
+				1F4BB19C199AA49300C521A7 /* NMTabBarController.h */,
+				1F4BB19D199AA49300C521A7 /* NMTabBarController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1F4BB19B199AA45500C521A7 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				1F20A9D0199E82AC00238890 /* Receive */,
+				1F386D6B199BBE0F000947D6 /* NMSendPushTableViewController.h */,
+				1F386D6C199BBE0F000947D6 /* NMSendPushTableViewController.m */,
+				1F386D6E199BBE23000947D6 /* NMReceiveTableViewController.h */,
+				1F386D6F199BBE23000947D6 /* NMReceiveTableViewController.m */,
+				1F20A9CA199E5B0300238890 /* NMDeviceTableViewController.h */,
+				1F20A9CB199E5B0300238890 /* NMDeviceTableViewController.m */,
+				1F4BB19F199AA56800C521A7 /* NMAboutTableViewController.h */,
+				1F4BB1A0199AA56800C521A7 /* NMAboutTableViewController.m */,
+			);
+			name = Tabs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +308,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = ChaiOne;
 				TargetAttributes = {
+					1F13226E199A908E00A71761 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					1F132292199A908F00A71761 = {
 						TestTargetID = 1F13226E199A908E00A71761;
 					};
@@ -269,8 +346,8 @@
 			files = (
 				1F4BB193199A950700C521A7 /* LICENSE in Resources */,
 				1F13228E199A908F00A71761 /* Images.xcassets in Resources */,
+				1F20A9D2199E82F400238890 /* Main_iPhone.storyboard in Resources */,
 				1F4BB18F199A94FC00C521A7 /* README.md in Resources */,
-				1F4BB19A199AA07800C521A7 /* Main.storyboard in Resources */,
 				1F13227D199A908F00A71761 /* InfoPlist.strings in Resources */,
 				1F4BB191199A950200C521A7 /* release_notes.md in Resources */,
 			);
@@ -307,9 +384,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F13228C199A908F00A71761 /* NMViewController.m in Sources */,
+				1F386D6D199BBE0F000947D6 /* NMSendPushTableViewController.m in Sources */,
+				1F4BB1A1199AA56800C521A7 /* NMAboutTableViewController.m in Sources */,
+				1FF3281C199D5A5B00F4BE0B /* NMReceiveTableViewCell.m in Sources */,
+				1F386D70199BBE23000947D6 /* NMReceiveTableViewController.m in Sources */,
+				1FF32819199D562D00F4BE0B /* NMPushNotificationStore.m in Sources */,
+				1F4BB19E199AA49300C521A7 /* NMTabBarController.m in Sources */,
 				1F13227F199A908F00A71761 /* main.m in Sources */,
+				1F386D73199BBFB8000947D6 /* NMPushNotification.m in Sources */,
+				1F20A9D5199E87F500238890 /* NMReceiveDetailTableViewController.m in Sources */,
 				1F132283199A908F00A71761 /* NMAppDelegate.m in Sources */,
+				1F20A9CC199E5B0300238890 /* NMDeviceTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,14 +431,6 @@
 				1F13229E199A908F00A71761 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		1F4BB198199AA07800C521A7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F4BB199199AA07800C521A7 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
