@@ -50,7 +50,7 @@ Rather than sending push notifications to tokens which Apple gives you (which ca
 
 ## Setup
 
-1. Setting up push notifications can be a difficult process. There are several guides on the Internet to generate a .p12 file correctly, with (this one)[https://parse.com/tutorials/ios-push-notifications] from Parse having clear images as a guide in case you get lost.
+1. Setting up push notifications can be a difficult process. There are several guides on the Internet to generate a .p12 file correctly, with [this one](https://parse.com/tutorials/ios-push-notifications) from Parse having clear images as a guide in case you get lost.
 2. The next step in setting up push notifications is generating a .p12 file which has both your private key and certificate needed by APNS. We will be doing this twice as the development APNS (and associated keys/certs) are separate from the production APNS (with different keys and certs).  When exporting in Keychain, make sure you select both the private key and certificate to export into a single file as ContextHub needs both. Save the file as "Certificates.p12".
 3. With a .p12 file in a folder, navigate using Terminal into that folder and run the following command: 
 ```
