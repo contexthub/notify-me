@@ -137,6 +137,7 @@ Below shows the basics of how the CCHPush class is used to send and receive push
 ##### Setting up a push dictionary
 
 ```objc
+// Set up a push dictionary
 NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
 
 // Add a message (optional for background pushes if push has sound key)
@@ -160,8 +161,9 @@ userInfo[@"content-available"] = @1;
 ##### Sending a push to device(s)
 
 ```objc
-// userDict is the push dictionary, see above on how to set it up
-// All device IDs are UUIDs, if a deviceID is not a valid UUID, then it is not a valid device ID
+// Send a push to 2 devices with IDs defined below
+// Note: All device IDs are UUIDs, if a deviceID is not a valid UUID, then it is not a valid device ID
+// Note: userDict is the push dictionary, see above on how to set it up
 NSString *deviceID1 = @"20984403-690A-4098-8557-73B763F1DFFB";
 NSString *deviceID2 = @"151E57AF-7E87-400F-A1E0-63C9E7811376";
 [[CCHPush sharedInstance] sendNotificationToDevices:@[deviceID1, deviceID2] userInfo:userInfo completionHandler:^(NSError *error) {
@@ -177,8 +179,8 @@ NSString *deviceID2 = @"151E57AF-7E87-400F-A1E0-63C9E7811376";
 ##### Sending a push to alias(es)
 
 ```objc
-// userDict is the push dictionary, see above on how to set it up
 // Send a push notification to 2 devices, with aliases "Michael's iPhone 5s" and "Jeff's iPhone 5"
+// Note: userDict is the push dictionary, see above on how to set it up
 NSString *alias1 = @"Michael's iPhone 5s";
 NSString *alias2 = @"Jeff's iPhone 5";
 [[CCHPush sharedInstance] sendNotificationToAliases:@[alias1, alias2] userInfo:userInfo completionHandler:^(NSError *error) {
@@ -194,9 +196,9 @@ NSString *alias2 = @"Jeff's iPhone 5";
 ##### Sending a push to tags(s)
 
 ```objc
-// userDict is the push dictionary, see above on how to set it up
 // Send a push notification to all devices with tags "tag1" and "tag2"
-// Note: if a device has both "tag1" and "tag2", they will receive the same notification twice
+// Note: If a device has both "tag1" and "tag2", they will receive the same notification twice
+// Note: userDict is the push dictionary, see above on how to set it up
 NSString *tag1 = @"tag1";
 NSString *tag2 = @"tag2";
 [[CCHPush sharedInstance] sendNotificationToTags:@[tag1, tag2] userInfo:userInfo completionHandler:^(NSError *error) {
@@ -213,6 +215,7 @@ NSString *tag2 = @"tag2";
 ##### Receiving a push
 
 ```objc
+// Receive a push notification
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
     // Define our fetch completion handler which is called by ContextHub if the push wasn't a push for CCHSubscriptionService
