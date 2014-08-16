@@ -50,9 +50,9 @@ Rather than sending push notifications to tokens which Apple gives you (which ca
 
 ## Setup
 
-1. Setting up push notifications can be a difficult process. There are several guides on the Internet to generate a .p12 file correctly, with this one from [Parse](https://parse.com/tutorials/ios-push-notifications) having clear images as a guide in case you get lost.
-2. The next step in setting up push notifications is generating a .p12 file which has both your private key and certificate needed by APNS. We will be doing this twice as the development APNS (and associated keys/certs) are separate from the production APNS (with different keys and certs).  When exporting in Keychain, make sure you select both the private key and certificate to export into a single file as ContextHub needs both. Save the file as "Certificates.p12".
-3. With a .p12 file in a folder, navigate using Terminal into that folder and run the following command: 
+1. Setting up push notifications can be a difficult process. There are several guides on the Internet to generate a `.p12` file correctly, with this one from [Parse](https://parse.com/tutorials/ios-push-notifications) having clear images as a guide in case you get lost.
+2. The next step in setting up push notifications is generating a `.p12` file which has both your private key and certificate needed by APNS. We will be doing this twice as the development APNS (and associated keys/certs) are separate from the production APNS (with different keys and certs).  When exporting in Keychain, make sure you select both the private key and certificate to export into a single file as ContextHub needs both. Save the file as `"Certificates.p12"`.
+3. With a `.p12` file in a folder, navigate using Terminal into that folder and run the following command:
 ```
 openssl pkcs12 -in Certificates.p12 -out certificate.pem -nodes -clcerts
 ```
@@ -61,7 +61,7 @@ openssl pkcs12 -in Certificates.p12 -out certificate.pem -nodes -clcerts
     friendlyName: Apple Production IOS Push Services: YOUR-BUNDLE-ID-HERE`
 and end like this
 `-----END RSA PRIVATE KEY-----`
-5. Paste the text you got from the certificate.pem into the appropriate certificate box (either sandbox/development or production). You can verify that you have created the correct keys and certs by the presence of the phrase `Apple Development IOS Push Services` for sandbox and `Apple Production IOS Push Services` for production.
+5. Paste the text you got from the `certificate.pem` into the appropriate certificate box (either sandbox/development or production). You can verify that you have created the correct keys and certs by the presence of the phrase `Apple Development IOS Push Services` for sandbox and `Apple Production IOS Push Services` for production.
 6. Build and run your app on your device. You should get a popup notification asking for permission to receive push notifications if everything is working properly. If you have any issues, see the troubleshooting below.
 
 ## Running the sample app
