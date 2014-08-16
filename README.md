@@ -83,10 +83,11 @@ and end like this
 
 In this sample, most of the important code that deals with push notifications occurs in `NMAppDelegate.m` and `NMSendPushTableViewController.m`. `NMAppDelegate.m` deals with registering a device with APNS, registering the token, alias and tags with ContextHub and receiving push notifications. `NMSendPushTableViewController.m` handles sending push notifications in 3 different ways, to a device id, to multiple aliases, and to multiple tags.
 
-In addition, `NMReceiveTableViewController.m` and `NMReceiveDetailTableViewController.m` deal with showing notifications that you have received with their contents; whether they were foreground or background pushes, the time they were received (which has no guarantee of immediacy with background pushes in relation to the time they were sent) and any custom payloads to be sent with the message. Key to this is the fact that the method: 
+In addition, `NMReceiveTableViewController.m` and `NMReceiveDetailTableViewController.m` deal with showing notifications that you have received with their contents; whether they were foreground or background pushes, the time they were received (which has no guarantee of immediacy with background pushes in relation to the time they were sent) and any custom payloads to be sent with the message. Key to this is the fact that the method:
 ```
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
-``` will be called eventually with background notifications regardless of whether your application is in the foreground or background or not running at all, which gives added power to your applications to respond to a notification with a fresh state the next time a user opens up your app.
+``` 
+    will be called eventually with background notifications regardless of whether your application is in the foreground or background or not running at all, which gives added power to your applications to respond to a notification with a fresh state the next time a user opens up your app.
 
 ## Usage
 
