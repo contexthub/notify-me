@@ -129,9 +129,7 @@ Below shows the basics of how the CCHPush class is used to send and receive push
 
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Register for remote notifications
-    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound ];
-    
+    // Register with ContextHub
 #ifdef DEBUG
     // The debug flag is automatically set by the compiler, indicating which push gateway server your device will use
     // Xcode deployed builds use the sandbox/development server
@@ -141,10 +139,39 @@ Below shows the basics of how the CCHPush class is used to send and receive push
     [[ContextHub sharedInstance] setDebug:TRUE];
 #endif
 
+    // Register the app id of the application you created on https://app.contexthub.com
     [ContextHub registerWithAppId:@"YOUR-APP-ID-HERE"];
+
+// Register for remote notifications
+#ifdef __IPHONE_8_0
+    // iOS 8 and above
+    UIUserNotificationType notificationTypes = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+#else
+    // iOS 7 and below
+    UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
+#endif
     
     return YES;
 }
+
+#ifdef __IPHONE_8_0
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    // Register to receive notifications
+    [application registerForRemoteNotifications];
+}
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void(^)())completionHandler
+{
+    // Handle the actions
+    if ([identifier isEqualToString:@"declineAction"]){
+    } else if ([identifier isEqualToString:@"answerAction"]){
+    }
+}
+#endif
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString *alias = @"alias";
@@ -250,28 +277,33 @@ NSString *tag2 = @"tag2";
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
     // Define our fetch completion handler which is called by ContextHub if the push wasn't a push for CCHSubscriptionService
-    void (^fetchCompletionHandler)(UIBackgroundFetchResult) = ^(UIBackgroundFetchResult result){
+    void (^fetchCompletionHandler)(UIBackgroundFetchResult, BOOL) = ^(UIBackgroundFetchResult result, BOOL CCHContextHubPush){
         NSLog(@"Push received: %@", userInfo);
 
-        // Get the alert (will be nil if it doesn't exist)
-        NSString *alert = [userInfo valueForKeyPath:@"aps.alert"];
-        
-        // Determine if this was a background or foreground push based on presence of "content-available" key
-        BOOL background = ([userInfo valueForKeyPath:@"aps.content-available"] != nil) ? YES : NO;
-        
-        // Get the custom data (we sent this ourselves in the userInfo dictionary)
-        NSString *string = [userInfo valueForKey:@"string"];
-        NSArray *array = [userInfo valueForKey:@"array"];
-        NSDictionary *dictionary = [userInfo valueForKey:@"dictionary"];
-
-        // At this point, you can act on the message by popping an alert view
-        // Note that if this notification was processed in the background, check application state to avoid unnecessary UI alerts
-        if (application.applicationState == UIApplicationStateActive) {
-            // App in foreground
+        if (CCHContextHubPush) {
+            completionHandler(result);
         }
+        else {
+            // Get the alert (will be nil if it doesn't exist)
+            NSString *alert = [userInfo valueForKeyPath:@"aps.alert"];
 
-        // Call the completionhandler based on whether your push resulted in data or not 
-        completionHandler(UIBackgroundFetchResultNewData);
+            // Determine if this was a background or foreground push based on presence of "content-available" key
+            BOOL background = ([userInfo valueForKeyPath:@"aps.content-available"] != nil) ? YES : NO;
+
+            // Get the custom data (we sent this ourselves in the userInfo dictionary)
+            NSString *string = [userInfo valueForKey:@"string"];
+            NSArray *array = [userInfo valueForKey:@"array"];
+            NSDictionary *dictionary = [userInfo valueForKey:@"dictionary"];
+
+            // At this point, you can act on the message by popping an alert view
+            // Note that if this notification was processed in the background, check application state to avoid unnecessary UI alerts
+            if (application.applicationState == UIApplicationStateActive) {
+                // App in foreground
+            }
+
+            // Call the completionhandler based on whether your push resulted in data or not 
+            completionHandler(UIBackgroundFetchResultNewData);
+        }
     };
     
     // Let ContextHub process the push
@@ -287,14 +319,21 @@ That's it! Hopefully this sample application showed you how to work with push no
 
 Things to check if you have not gotten a notification in your app asking to receive push notifications:
 
-1. Ensure that you have the correct push certificates for your bundle identifier (ex. com.chaione.notifyme)
+1. Ensure that you have the correct push certificates for your bundle identifier (ex. `com.contexthub.notifyme`)
 2. Ensure you are testing push on an iOS device. Push notifications do *not* work with the iOS Simulator and will always fail registration.
-3. Ensure that you are *not* using a provisioning profile with a wildcard (`*`) in the bundle identifier (`com.chaione.*`). Team Provisioning Profiles auto-generated by Xcode will *not* work. Push notifications only work with full, explicit bundle identifiers (ex. `com.chaione.notifyme`) manually generated by memebers of your Apple Developer Program who have "Agent" status or higher. If you cannot make approve certificate signing requests on your own, talk to someone with "Agent" status or higher on your team to get them to approve them for you.
-4. Ensure that the proper provisioning profile is used in project settings when deploying to a device. While an app will run on your device with a wildcard profile, it will only ask for permission to receive push notifications with a provisioning profile linked to a full, explicit bundle id (ex. `com.chaione.notifyme`)
+3. Ensure that you are *not* using a provisioning profile with a wildcard (`*`) in the bundle identifier (`com.contexthub.*`). Team Provisioning Profiles auto-generated by Xcode will *not* work. Push notifications only work with full, explicit bundle identifiers (ex. `com.contexthub.notifyme`) manually generated by memebers of your Apple Developer Program who have "Agent" status or higher. If you cannot make approve certificate signing requests on your own, talk to someone with "Agent" status or higher on your team to get them to approve them for you.
+4. Ensure that the proper provisioning profile is used in project settings when deploying to a device. While an app will run on your device with a wildcard profile, it will only ask for permission to receive push notifications with a provisioning profile linked to a full, explicit bundle id (ex. `com.contexthub.notifyme`)
 5. Make sure in Project Settings, under Capabilities that the `Remote Notifications` box has been checked under `Background Modes`.
-6. Make sure you are calling the following method which triggers registration for push in `[application: didFinishLaunchingWithOptions:]`:
+6. Make sure you are calling the following method(s) which triggers registration for push in `[application: didFinishLaunchingWithOptions:]`:
 ```
-[application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound ];
+// iOS 8 and above:
+UIUserNotificationType notificationTypes = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;
+UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
+[[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+
+// iOS 7 and below:
+UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+[[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
 ```
 
 Things to check if you are not receiving push notifications (you need to have gotten the Apple push alert first - it will only popup once per bundle id):
@@ -316,3 +355,5 @@ Other:
 2. According to Apple docs, you should not worry about the number of background pushes you send to a device, they will automatically be rate-limited in being delivered to the device (see #3 for more info)
 3. Background pushes can be queued at the APNS level and sent with the next foreground push if too many background pushes are sent at once.
 4. There is no guarantee that a push notification will be delivered to a device, though APNS gives best effort when possible. If a device is offline when a push is sent, APNS will attempt to send it the next time the device is online.
+5. It may take several minutes before the OS decides to wake up your app to process a background push.
+6. While debugging in Xcode, the OS will process your background push immediately. This is *not* the case when your app is running without Xcode. As such, you should not rely on your app immediately processing background pushes when they are received by the OS.

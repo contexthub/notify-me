@@ -27,11 +27,21 @@
     [[ContextHub sharedInstance] setDebug:TRUE];
 #endif
     
-    //Register the app id of the application you created on https://app.contexthub.com
+    // Register the app id of the application you created on https://app.contexthub.com
     [ContextHub registerWithAppId:@"YOUR-PUSH-APP-ID-HERE"];
     
+    
     // Register for remote notifications
-    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound ];
+#ifdef __IPHONE_8_0
+    // iOS 8 and above
+    UIUserNotificationType notificationTypes = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+#else
+    // iOS 7 and below
+    UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
+#endif
     
     // Clear badge
     application.applicationIconBadgeNumber = 0;
@@ -45,6 +55,22 @@
 }
 							
 #pragma mark - Remote Notifications
+
+#ifdef __IPHONE_8_0
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    // Register to receive notifications
+    [application registerForRemoteNotifications];
+}
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void(^)())completionHandler
+{
+    // Handle the actions
+    if ([identifier isEqualToString:@"declineAction"]){
+    } else if ([identifier isEqualToString:@"answerAction"]){
+    }
+}
+#endif
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // Set up the alias, tags, and register for push notifications on the server
@@ -78,30 +104,37 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
+    NSLog(@"message: %@", userInfo);
+    
     // Define our fetch completion handler which is called by ContextHub if the push wasn't a push for CCHSubscriptionService
-    void (^fetchCompletionHandler)(UIBackgroundFetchResult) = ^(UIBackgroundFetchResult result){
-        NSLog(@"Push received: %@", userInfo);
-        NSString *message = [userInfo valueForKeyPath:@"aps.alert"];
-        NSDictionary *customPayload = [userInfo valueForKey:@"payload"];
-        BOOL background = ([userInfo valueForKeyPath:@"aps.content-available"] != nil) ? YES : NO;
+    void (^fetchCompletionHandler)(UIBackgroundFetchResult, BOOL) = ^(UIBackgroundFetchResult result, BOOL CCHContextHubPush){
         
-        // Add the message to our store
-        NMPushNotification *newNotification = [[NMPushNotification alloc] initWithAlert:message customPayload:customPayload background:background];
-        [[NMPushNotificationStore sharedInstance] addNotification:newNotification];
-        
-        // Pop an alert about our message only if our app is in the foreground and push wasn't from background
-        if (application.applicationState == UIApplicationStateActive && !background) {
-            [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+        if (CCHContextHubPush) {
+            completionHandler (result);
+        } else {
+            //NSLog(@"Push received: %@", userInfo);
+            NSString *message = [userInfo valueForKeyPath:@"aps.alert"];
+            NSDictionary *customPayload = [userInfo valueForKey:@"payload"];
+            BOOL background = ([userInfo valueForKeyPath:@"aps.content-available"] != nil) ? YES : NO;
+            
+            // Add the message to our store
+            NMPushNotification *newNotification = [[NMPushNotification alloc] initWithAlert:message customPayload:customPayload background:background];
+            [[NMPushNotificationStore sharedInstance] addNotification:newNotification];
+            
+            // Pop an alert about our message only if our app is in the foreground and push wasn't from background
+            if (application.applicationState == UIApplicationStateActive && !background) {
+                [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+            }
+            
+            // Increase badge number by 1
+            application.applicationIconBadgeNumber += 1;
+            
+            // Post a notification that there's a new push notification so our receive table view can reload data
+            [[NSNotificationCenter defaultCenter] postNotificationName:NMNewPushNotification object:nil];
+            
+            // Call the completionhandler based on whether your push resulted in data or not
+            completionHandler(UIBackgroundFetchResultNewData);
         }
-        
-        // Increase badge number by 1
-        application.applicationIconBadgeNumber += 1;
-        
-        // Post a notification that there's a new push notification so our receive table view can reload data
-        [[NSNotificationCenter defaultCenter] postNotificationName:NMNewPushNotification object:nil];
-        
-        // Call the completionhandler based on whether your push resulted in data or not 
-        completionHandler(UIBackgroundFetchResultNewData);
     };
     
     // Let ContextHub process the push
