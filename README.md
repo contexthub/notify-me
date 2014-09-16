@@ -276,14 +276,17 @@ NSString *tag2 = @"tag2";
 // Receive a push notification
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
-    // Define our fetch completion handler which is called by ContextHub if the push wasn't a push for CCHSubscriptionService
+    // Define our fetchCompletionHandler which is called after ContextHub processes our push
     void (^fetchCompletionHandler)(UIBackgroundFetchResult, BOOL) = ^(UIBackgroundFetchResult result, BOOL CCHContextHubPush){
-        NSLog(@"Push received: %@", userInfo);
-
+        
         if (CCHContextHubPush) {
+            // ContextHub processed this push, just call the Apple completionHandler
             completionHandler(result);
         }
         else {
+            // This push was for our app to process
+            NSLog(@"Push received: %@", userInfo);
+
             // Get the alert (will be nil if it doesn't exist)
             NSString *alert = [userInfo valueForKeyPath:@"aps.alert"];
 

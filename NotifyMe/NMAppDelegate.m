@@ -104,15 +104,16 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
-    NSLog(@"message: %@", userInfo);
-    
-    // Define our fetch completion handler which is called by ContextHub if the push wasn't a push for CCHSubscriptionService
+    // Define our fetchCompletionHandler which is called after ContextHub processes our push
     void (^fetchCompletionHandler)(UIBackgroundFetchResult, BOOL) = ^(UIBackgroundFetchResult result, BOOL CCHContextHubPush){
         
         if (CCHContextHubPush) {
+            // ContextHub processed this push, just call the Apple completionHandler
             completionHandler (result);
         } else {
-            //NSLog(@"Push received: %@", userInfo);
+            // This push was for our app to process
+            NSLog(@"Push received: %@", userInfo);
+    
             NSString *message = [userInfo valueForKeyPath:@"aps.alert"];
             NSDictionary *customPayload = [userInfo valueForKey:@"payload"];
             BOOL background = ([userInfo valueForKeyPath:@"aps.content-available"] != nil) ? YES : NO;
