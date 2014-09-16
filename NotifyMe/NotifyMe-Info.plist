@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>NotifyMe needs to use background location updates for location changes to work correctly.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -19,13 +17,15 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.1</string>
+	<string>1.0.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>139</string>
+	<string>140</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>NotifyMe needs to use background location updates for location changes to work correctly.</string>
 	<key>NSMainNibFile~ipad</key>
 	<string>Main</string>
 	<key>UIBackgroundModes</key>

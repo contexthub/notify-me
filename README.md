@@ -142,17 +142,17 @@ Below shows the basics of how the CCHPush class is used to send and receive push
     // Register the app id of the application you created on https://app.contexthub.com
     [ContextHub registerWithAppId:@"YOUR-APP-ID-HERE"];
 
-// Register for remote notifications
-#ifdef __IPHONE_8_0
-    // iOS 8 and above
-    UIUserNotificationType notificationTypes = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-#else
-    // iOS 7 and below
-    UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
-#endif
+    // Register for remote notifications
+    if ([UIUserNotificationSettings class]) {
+        // iOS 8 and above
+        UIUserNotificationType notificationTypes = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    } else {
+        // iOS 7 and below
+        UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
+    }
     
     return YES;
 }

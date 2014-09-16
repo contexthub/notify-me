@@ -17,7 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Register with ContextHub
 #ifdef DEBUG
     // The debug flag is automatically set by the compiler, indicating which push gateway server your device will use
     // Xcode deployed builds use the sandbox/development server
@@ -30,18 +29,17 @@
     // Register the app id of the application you created on https://app.contexthub.com
     [ContextHub registerWithAppId:@"YOUR-PUSH-APP-ID-HERE"];
     
-    
     // Register for remote notifications
-#ifdef __IPHONE_8_0
-    // iOS 8 and above
-    UIUserNotificationType notificationTypes = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-#else
-    // iOS 7 and below
-    UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
-#endif
+    if ([UIUserNotificationSettings class]) {
+        // iOS 8 and above
+        UIUserNotificationType notificationTypes = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    } else {
+        // iOS 7 and below
+        UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
+    }
     
     // Clear badge
     application.applicationIconBadgeNumber = 0;
