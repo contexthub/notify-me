@@ -31,6 +31,7 @@
 		1F4BB193199A950700C521A7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BB192199A950700C521A7 /* LICENSE */; };
 		1F4BB19E199AA49300C521A7 /* NMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB19D199AA49300C521A7 /* NMTabBarController.m */; };
 		1F4BB1A1199AA56800C521A7 /* NMAboutTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB1A0199AA56800C521A7 /* NMAboutTableViewController.m */; };
+		1FE0C9EA19FEA11B00704FDD /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE0C9E919FEA11B00704FDD /* Launch Screen.xib */; };
 		1FF32812199C3E3500F4BE0B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32811199C3E3500F4BE0B /* CoreLocation.framework */; };
 		1FF32814199C3E3D00F4BE0B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32813199C3E3D00F4BE0B /* CoreMotion.framework */; };
 		1FF32816199C3E4400F4BE0B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF32815199C3E4400F4BE0B /* MobileCoreServices.framework */; };
@@ -84,6 +85,7 @@
 		1F4BB19D199AA49300C521A7 /* NMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMTabBarController.m; path = "View Controllers/NMTabBarController.m"; sourceTree = "<group>"; };
 		1F4BB19F199AA56800C521A7 /* NMAboutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMAboutTableViewController.h; path = "View Controllers/Tabs/NMAboutTableViewController.h"; sourceTree = "<group>"; };
 		1F4BB1A0199AA56800C521A7 /* NMAboutTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMAboutTableViewController.m; path = "View Controllers/Tabs/NMAboutTableViewController.m"; sourceTree = "<group>"; };
+		1FE0C9E919FEA11B00704FDD /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		1FF3280D199C3AC000F4BE0B /* NMConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMConstants.h; sourceTree = "<group>"; };
 		1FF32811199C3E3500F4BE0B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1FF32813199C3E3D00F4BE0B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -169,6 +171,7 @@
 				1F132282199A908F00A71761 /* NMAppDelegate.m */,
 				1FF3280D199C3AC000F4BE0B /* NMConstants.h */,
 				1F20A9D1199E82F400238890 /* Main_iPhone.storyboard */,
+				1FE0C9E919FEA11B00704FDD /* Launch Screen.xib */,
 				1F13228D199A908F00A71761 /* Images.xcassets */,
 				1F132279199A908F00A71761 /* Supporting Files */,
 			);
@@ -309,7 +312,7 @@
 				ORGANIZATIONNAME = ChaiOne;
 				TargetAttributes = {
 					1F13226E199A908E00A71761 = {
-						DevelopmentTeam = G54H62625F;
+						DevelopmentTeam = K83DSSAEPP;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -350,6 +353,7 @@
 				1F20A9D2199E82F400238890 /* Main_iPhone.storyboard in Resources */,
 				1F4BB18F199A94FC00C521A7 /* README.md in Resources */,
 				1F13227D199A908F00A71761 /* InfoPlist.strings in Resources */,
+				1FE0C9EA19FEA11B00704FDD /* Launch Screen.xib in Resources */,
 				1F4BB191199A950200C521A7 /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,6 +457,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -492,6 +497,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
