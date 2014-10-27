@@ -301,8 +301,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Message" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cTE-Wl-DgH">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Message" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cTE-Wl-DgH">
                                                     <rect key="frame" x="15" y="7" width="285" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="mIl-if-cPg"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="13"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -310,6 +313,11 @@
                                                     </connections>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cTE-Wl-DgH" firstAttribute="leading" secondItem="Tck-Xd-pqt" secondAttribute="leadingMargin" constant="7" id="8hY-gF-7Es"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="cTE-Wl-DgH" secondAttribute="trailing" constant="12" id="Wng-db-SJm"/>
+                                                <constraint firstAttribute="centerY" secondItem="cTE-Wl-DgH" secondAttribute="centerY" constant="-0.25" id="got-wC-dcG"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -399,8 +407,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Device id, aliases, or tags to send to" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jox-yO-V35">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Device id, aliases, or tags to send to" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jox-yO-V35">
                                                     <rect key="frame" x="15" y="7" width="285" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="hff-XB-Jmj"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="13"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -408,11 +419,16 @@
                                                     </connections>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="jox-yO-V35" secondAttribute="centerY" constant="-0.25" id="K1q-IB-t5N"/>
+                                                <constraint firstItem="jox-yO-V35" firstAttribute="leading" secondItem="cvu-9C-QWq" secondAttribute="leadingMargin" constant="7" id="MSg-E9-zjc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jox-yO-V35" secondAttribute="trailing" constant="12" id="R7D-XD-4bA"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Custom payload" footerTitle="All message data with custom payload must be under 256 bytes" id="Azr-cb-wTw">
+                            <tableViewSection headerTitle="Custom payload" footerTitle="All message data with custom payload must be under 256 bytes (pre-iOS 8) and under 2KB (iOS 8+)" id="Azr-cb-wTw">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="yf7-8V-wl9">
                                         <rect key="frame" x="0.0" y="483" width="320" height="44"/>
@@ -421,8 +437,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Custom payload" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NMh-LO-TZ8">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Custom payload" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NMh-LO-TZ8">
                                                     <rect key="frame" x="15" y="7" width="285" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="nH9-Ag-SiR"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="13"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -430,6 +449,11 @@
                                                     </connections>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="NMh-LO-TZ8" firstAttribute="leading" secondItem="IbT-mX-bKQ" secondAttribute="leadingMargin" constant="7" id="2yz-Dd-oXF"/>
+                                                <constraint firstAttribute="centerY" secondItem="NMh-LO-TZ8" secondAttribute="centerY" constant="-0.25" id="Erv-pn-NqG"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="NMh-LO-TZ8" secondAttribute="trailing" constant="12" id="IO9-5A-2QS"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>

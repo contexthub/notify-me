@@ -120,13 +120,15 @@
             NMPushNotification *newNotification = [[NMPushNotification alloc] initWithAlert:message customPayload:customPayload background:background];
             [[NMPushNotificationStore sharedInstance] addNotification:newNotification];
             
+            // Increase badge number by 1
+            application.applicationIconBadgeNumber += 1;
+            
             // Pop an alert about our message only if our app is in the foreground and push wasn't from background
             if (application.applicationState == UIApplicationStateActive && !background) {
                 [[[UIAlertView alloc] initWithTitle:@"ContextHub" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+                
+                application.applicationIconBadgeNumber = 0;
             }
-            
-            // Increase badge number by 1
-            application.applicationIconBadgeNumber += 1;
             
             // Post a notification that there's a new push notification so our receive table view can reload data
             [[NSNotificationCenter defaultCenter] postNotificationName:NMNewPushNotification object:nil];

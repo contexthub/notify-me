@@ -9,6 +9,8 @@
 #import "NMSendPushTableViewController.h"
 #import <ContextHub/ContextHub.h>
 
+#import "NMConstants.h"
+
 @interface NMSendPushTableViewController ()
 
 typedef NS_ENUM(NSUInteger, NMSendPushSection) {
@@ -239,14 +241,17 @@ typedef NS_ENUM(NSUInteger, NMPushType) {
             switch (self.selectedIndex) {
                 case NMPushTypeDeviceID:
                     self.devicesTextField.placeholder = @"Device id";
+                    self.devicesTextField.text = [ContextHub deviceId];
                     
                     break;
                 case NMPushTypeAlias:
                     self.devicesTextField.placeholder = @"Comma-separated aliases";
+                    self.devicesTextField.text = [[UIDevice currentDevice] name];
                     
                     break;
                 case NMPushTypeTag:
                     self.devicesTextField.placeholder = @"Comma-separated tags";
+                    self.devicesTextField.text = NMDeviceFirstTag;
                     
                     break;
                 default:
